@@ -81,7 +81,10 @@
   }
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 
 body {
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -89,7 +92,10 @@ body {
   color: var(--text);
   line-height: 1.65;
   transition: background 0.2s, color 0.2s;
+  overflow-x: clip;
 }
+
+* { overflow-wrap: break-word; min-width: 0; }
 
 .controls {
   position: fixed;
@@ -151,7 +157,7 @@ body {
 
 .hero h1 {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-size: clamp(1.65rem, 6vw, 3.6rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 0.4rem;
@@ -285,8 +291,9 @@ section + section { border-top: 1px solid var(--border); }
   align-items: start;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .skills-grid { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
 }
 
 .skill-block {
