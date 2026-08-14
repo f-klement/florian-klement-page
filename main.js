@@ -1,4 +1,5 @@
 (function () {
+  const year = new Date().getFullYear();
   const t = {
     en: {
       subtitle:             "DevOps, Web & Mobile Engineer · Vienna",
@@ -40,7 +41,7 @@
       "details.summary":    "Technologies",
       "contact.title":      "Get in touch",
       "contact.desc":       "Whether it's a project, a question, or just a conversation, feel free to reach out.",
-      footer:               "Florian Klement · Vienna · 2026",
+      footer:               `Florian Klement · Vienna · ${year}`,
     },
     de: {
       subtitle:             "DevOps, Web & Mobile Engineer · Wien",
@@ -82,7 +83,7 @@
       "details.summary":    "Technologien",
       "contact.title":      "Kontakt",
       "contact.desc":       "Ob Projekt, Frage oder einfach ein Gespräch, gerne melden.",
-      footer:               "Florian Klement · Wien · 2026",
+      footer:               `Florian Klement · Wien · ${year}`,
     }
   };
 
