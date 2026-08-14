@@ -92,8 +92,9 @@ body {
   color: var(--text);
   line-height: 1.65;
   transition: background 0.2s, color 0.2s;
-  overflow-x: clip;
 }
+
+.page-wrap { overflow-x: clip; }
 
 * { overflow-wrap: break-word; min-width: 0; }
 
