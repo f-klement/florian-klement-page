@@ -5,348 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Florian Klement</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><path fill='%23ffffff' d='M25 14.5a6.5 6.5 0 0 0-12.7-2A5 5 0 1 0 8 22h17a4.5 4.5 0 0 0 0-9z'/></svg>" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    /* ── TOKENS ─────────────────────────────────────── */
-    :root {
-      --bg:          #f8f7f4;
-      --surface:     #ffffff;
-      --hero-bg:     #0f172a;
-      --accent:      #3b82f6;
-      --accent-d:    #2563eb;
-      --text:        #111827;
-      --muted:       #6b7280;
-      --border:      #e5e7eb;
-      --tag-bg:      #f1f5f9;
-      --tag-border:  #e2e8f0;
-      --tag-text:    #334155;
-      --ctrl-bg:     rgba(15,23,42,0.75);
-      --ctrl-text:   #e2e8f0;
-      --ctrl-border: #334155;
-      --icon-blue:   #dbeafe;
-      --icon-green:  #d1fae5;
-      --icon-purple: #ede9fe;
-      --icon-amber:  #fef3c7;
-      --radius:      10px;
-    }
-
-    [data-theme="dark"] {
-      --bg:          #0f172a;
-      --surface:     #1e293b;
-      --hero-bg:     #020617;
-      --accent:      #60a5fa;
-      --accent-d:    #3b82f6;
-      --text:        #e2e8f0;
-      --muted:       #94a3b8;
-      --border:      #334155;
-      --tag-bg:      #0f172a;
-      --tag-border:  #334155;
-      --tag-text:    #cbd5e1;
-      --ctrl-bg:     rgba(2,6,23,0.85);
-      --ctrl-text:   #e2e8f0;
-      --ctrl-border: #475569;
-      --icon-blue:   #1e3a5f;
-      --icon-green:  #064e3b;
-      --icon-purple: #2e1065;
-      --icon-amber:  #451a03;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg:          #0f172a;
-        --surface:     #1e293b;
-        --hero-bg:     #020617;
-        --accent:      #60a5fa;
-        --accent-d:    #3b82f6;
-        --text:        #e2e8f0;
-        --muted:       #94a3b8;
-        --border:      #334155;
-        --tag-bg:      #0f172a;
-        --tag-border:  #334155;
-        --tag-text:    #cbd5e1;
-        --ctrl-bg:     rgba(2,6,23,0.85);
-        --ctrl-text:   #e2e8f0;
-        --ctrl-border: #475569;
-        --icon-blue:   #1e3a5f;
-        --icon-green:  #064e3b;
-        --icon-purple: #2e1065;
-        --icon-amber:  #451a03;
-      }
-    }
-
-    /* ── BASE ───────────────────────────────────────── */
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    /* ── CONTROLS ───────────────────────────────────── */
-    .controls {
-      position: fixed;
-      top: 0.85rem;
-      right: 1rem;
-      display: flex;
-      gap: 0.4rem;
-      z-index: 200;
-    }
-    .ctrl-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 32px;
-      min-width: 32px;
-      padding: 0 0.6rem;
-      border-radius: 99px;
-      border: 1px solid var(--ctrl-border);
-      background: var(--ctrl-bg);
-      color: var(--ctrl-text);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .ctrl-btn svg { width: 15px; height: 15px; }
-
-    /* ── HERO ───────────────────────────────────────── */
-    .hero {
-      background: var(--hero-bg);
-      color: #fff;
-      padding: 4rem 1.5rem 3.5rem;
-      transition: background 0.2s;
-    }
-    .hero-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-    }
-    .hero-text { flex: 1; }
-    .hero h1 {
-      font-size: clamp(2rem, 5.5vw, 3.4rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
-    }
-    .hero .subtitle {
-      font-size: 0.9rem;
-      color: #94a3b8;
-      margin-bottom: 1.2rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .hero .tagline {
-      font-size: 1.05rem;
-      color: #cbd5e1;
-      max-width: 520px;
-      margin-bottom: 1.8rem;
-      line-height: 1.75;
-    }
-    .icon-links { display: flex; gap: 1rem; }
-    .icon-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 1px solid #334155;
-      color: #94a3b8;
-      text-decoration: none;
-      transition: border-color 0.15s, color 0.15s, background 0.15s;
-    }
-    .icon-link:hover { border-color: var(--accent); color: #fff; background: var(--accent); }
-    .icon-link svg { width: 19px; height: 19px; }
-
-    .hero-photo { flex-shrink: 0; }
-    .hero-photo img {
-      width: 148px;
-      height: 148px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 26%;
-      border: 2px solid #334155;
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      .hero-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-      .hero-photo { order: -1; }
-      .hero-photo img { width: 108px; height: 108px; }
-    }
-
-    /* ── LAYOUT ─────────────────────────────────────── */
-    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-    section { padding: 3.5rem 0; }
-    section + section { border-top: 1px solid var(--border); }
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.75rem;
-    }
-
-    /* ── AREA CARDS ─────────────────────────────────── */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.25rem;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.25rem;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      transition: background 0.2s;
-    }
-    .blue   { background: var(--icon-blue); }
-    .green  { background: var(--icon-green); }
-    .purple { background: var(--icon-purple); }
-    .amber  { background: var(--icon-amber); }
-    .card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .card p  { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── SKILL BLOCKS ───────────────────────────────── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      align-items: start;
-    }
-    @media (max-width: 560px) {
-      .skills-grid { grid-template-columns: 1fr; }
-    }
-
-    .skill-block {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .skill-top { padding: 1.25rem 1.25rem 1rem; }
-    .skill-top h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .skill-top p  { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
-
-    details { border-top: 1px solid var(--border); }
-    details summary {
-      padding: 0.7rem 1.25rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      cursor: pointer;
-      user-select: none;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: background 0.1s;
-    }
-    details summary::-webkit-details-marker { display: none; }
-    details summary::before {
-      content: "›";
-      font-size: 1rem;
-      transition: transform 0.2s;
-      display: inline-block;
-    }
-    details[open] summary::before { transform: rotate(90deg); }
-    details summary:hover { background: color-mix(in srgb, var(--surface) 80%, var(--border)); }
-
-    .tech-group { padding: 0.5rem 1.25rem 0; }
-    .tech-group-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 0.45rem;
-    }
-    .tech-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.75rem;
-    }
-    .tag {
-      display: inline-block;
-      background: var(--tag-bg);
-      border: 1px solid var(--tag-border);
-      border-radius: 99px;
-      padding: 0.2rem 0.65rem;
-      font-size: 0.78rem;
-      color: var(--tag-text);
-      font-weight: 500;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
-    }
-    details > *:last-child { padding-bottom: 1.25rem; }
-
-    /* ── CONTACT ────────────────────────────────────── */
-    .contact-box {
-      background: var(--hero-bg);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 3rem 2rem;
-      text-align: center;
-      transition: background 0.2s;
-    }
-    .contact-box h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.6rem; }
-    .contact-box p {
-      color: #94a3b8;
-      font-size: 0.95rem;
-      margin-bottom: 1.75rem;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .contact-icon-links { display: flex; gap: 1.25rem; justify-content: center; }
-    .contact-icon-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: 1px solid #334155;
-      color: #94a3b8;
-      text-decoration: none;
-      transition: border-color 0.15s, color 0.15s, background 0.15s;
-    }
-    .contact-icon-link:hover { border-color: var(--accent); color: #fff; background: var(--accent); }
-    .contact-icon-link svg { width: 22px; height: 22px; }
-
-    /* ── FOOTER ─────────────────────────────────────── */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- Controls -->
 <div class="controls" role="toolbar">
   <button class="ctrl-btn" id="lang-btn" aria-label="Switch language">DE</button>
   <button class="ctrl-btn" id="theme-btn" aria-label="Toggle theme">
@@ -367,7 +29,6 @@
   </button>
 </div>
 
-<!-- Hero -->
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-text">
@@ -401,241 +62,237 @@
 
 <main>
 
-<!-- Areas of work -->
-<section>
-  <div class="container">
-    <p class="section-label" data-i18n="section.areas">Areas of work</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon blue">📱</div>
-        <h3 data-i18n="card.apps.title">Web &amp; mobile apps</h3>
-        <p data-i18n="card.apps.desc">Building interfaces that run in the browser or on your phone, connected to solid backend services.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon green">⚙️</div>
-        <h3 data-i18n="card.deploy.title">Deployment &amp; automation</h3>
-        <p data-i18n="card.deploy.desc">Setting up the systems that test and ship software automatically, so teams focus on building instead of releasing.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon purple">📊</div>
-        <h3 data-i18n="card.data.title">Data engineering</h3>
-        <p data-i18n="card.data.desc">Designing pipelines that collect, clean and organise raw data into something teams can actually use.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon amber">🖥️</div>
-        <h3 data-i18n="card.infra.title">Infrastructure &amp; security</h3>
-        <p data-i18n="card.infra.desc">Running servers and networks, keeping traffic routed correctly and systems protected from the outside.</p>
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="section.areas">Areas of work</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon blue">📱</div>
+          <h3 data-i18n="card.apps.title">Web &amp; mobile apps</h3>
+          <p data-i18n="card.apps.desc">Building interfaces that run in the browser or on your phone, connected to solid backend services.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon green">⚙️</div>
+          <h3 data-i18n="card.deploy.title">Deployment &amp; automation</h3>
+          <p data-i18n="card.deploy.desc">Setting up the systems that test and ship software automatically, so teams focus on building instead of releasing.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon purple">📊</div>
+          <h3 data-i18n="card.data.title">Data engineering</h3>
+          <p data-i18n="card.data.desc">Designing pipelines that collect, clean and organise raw data into something teams can actually use.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon amber">🖥️</div>
+          <h3 data-i18n="card.infra.title">Infrastructure &amp; security</h3>
+          <p data-i18n="card.infra.desc">Running servers and networks, keeping traffic routed correctly and systems protected from the outside.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Skills -->
-<section>
-  <div class="container">
-    <p class="section-label" data-i18n="section.skills">Skills &amp; expertise</p>
-    <div class="skills-grid">
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="section.skills">Skills &amp; expertise</p>
+      <div class="skills-grid">
 
-      <div class="skill-block">
-        <div class="skill-top">
-          <h3 data-i18n="skill.web.title">Web &amp; Mobile Development</h3>
-          <p data-i18n="skill.web.desc">Full-stack applications from database to user interface, including cross-platform mobile development with React Native.</p>
+        <div class="skill-block">
+          <div class="skill-top">
+            <h3 data-i18n="skill.web.title">Web &amp; Mobile Development</h3>
+            <p data-i18n="skill.web.desc">Full-stack applications from database to user interface, including cross-platform mobile development with React Native.</p>
+          </div>
+          <details>
+            <summary data-i18n="details.summary">Technologies</summary>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.languages">Languages</p>
+              <div class="tech-list">
+                <span class="tag">TypeScript</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Python</span>
+                <span class="tag">HTML5 / CSS3</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.frontend">Frontend &amp; mobile</p>
+              <div class="tech-list">
+                <span class="tag">React</span>
+                <span class="tag">React Native</span>
+                <span class="tag">Bun</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.backend">Backend &amp; API</p>
+              <div class="tech-list">
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+                <span class="tag">NestJS</span>
+                <span class="tag">Django</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Prisma ORM</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.quality">Quality</p>
+              <div class="tech-list">
+                <span class="tag">Playwright</span>
+                <span class="tag">SonarQube</span>
+              </div>
+            </div>
+          </details>
         </div>
-        <details>
-          <summary data-i18n="details.summary">Technologies</summary>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.languages">Languages</p>
-            <div class="tech-list">
-              <span class="tag">TypeScript</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Python</span>
-              <span class="tag">HTML5 / CSS3</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.frontend">Frontend &amp; mobile</p>
-            <div class="tech-list">
-              <span class="tag">React</span>
-              <span class="tag">React Native</span>
-              <span class="tag">Bun</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.backend">Backend &amp; API</p>
-            <div class="tech-list">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express</span>
-              <span class="tag">NestJS</span>
-              <span class="tag">Django</span>
-              <span class="tag">Flask</span>
-              <span class="tag">Prisma ORM</span>
-              <span class="tag">PostgreSQL</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.quality">Quality</p>
-            <div class="tech-list">
-              <span class="tag">Playwright</span>
-              <span class="tag">SonarQube</span>
-            </div>
-          </div>
-        </details>
-      </div>
 
-      <div class="skill-block">
-        <div class="skill-top">
-          <h3 data-i18n="skill.devops.title">DevOps &amp; Infrastructure</h3>
-          <p data-i18n="skill.devops.desc">Containers, orchestration and CI/CD pipelines that take code from a developer's machine into production reliably.</p>
+        <div class="skill-block">
+          <div class="skill-top">
+            <h3 data-i18n="skill.devops.title">DevOps &amp; Infrastructure</h3>
+            <p data-i18n="skill.devops.desc">Containers, orchestration and CI/CD pipelines that take code from a developer's machine into production reliably.</p>
+          </div>
+          <details>
+            <summary data-i18n="details.summary">Technologies</summary>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.containers">Containers &amp; orchestration</p>
+              <div class="tech-list">
+                <span class="tag">Docker</span>
+                <span class="tag">Kubernetes</span>
+                <span class="tag">K3s</span>
+                <span class="tag">Helm</span>
+                <span class="tag">Rancher</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.cicd">CI/CD &amp; dependency management</p>
+              <div class="tech-list">
+                <span class="tag">GitLab CI</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Jenkins</span>
+                <span class="tag">Renovate</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.observability">Observability</p>
+              <div class="tech-list">
+                <span class="tag">Grafana</span>
+                <span class="tag">Loki</span>
+                <span class="tag">Mimir</span>
+                <span class="tag">Prometheus</span>
+                <span class="tag">Grafana Alloy</span>
+                <span class="tag">Gatus</span>
+                <span class="tag">Netdata</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.networking">Networking</p>
+              <div class="tech-list">
+                <span class="tag">Traefik</span>
+                <span class="tag">Nginx</span>
+                <span class="tag">Apache</span>
+                <span class="tag">MetalLB</span>
+                <span class="tag">AdGuard Home</span>
+                <span class="tag">Cloudflare DNS</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.storage">Storage &amp; secrets</p>
+              <div class="tech-list">
+                <span class="tag">MinIO</span>
+                <span class="tag">OpenBao (Vault)</span>
+                <span class="tag">democratic-csi</span>
+                <span class="tag">TrueNAS</span>
+                <span class="tag">RAID / ZFS</span>
+                <span class="tag">cert-manager</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.servers">Servers</p>
+              <div class="tech-list">
+                <span class="tag">Linux (Debian / RHEL)</span>
+                <span class="tag">Proxmox</span>
+                <span class="tag">Python</span>
+                <span class="tag">Bash scripting</span>
+              </div>
+            </div>
+          </details>
         </div>
-        <details>
-          <summary data-i18n="details.summary">Technologies</summary>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.containers">Containers &amp; orchestration</p>
-            <div class="tech-list">
-              <span class="tag">Docker</span>
-              <span class="tag">Kubernetes</span>
-              <span class="tag">K3s</span>
-              <span class="tag">Helm</span>
-              <span class="tag">Rancher</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.cicd">CI/CD &amp; dependency management</p>
-            <div class="tech-list">
-              <span class="tag">GitLab CI</span>
-              <span class="tag">GitHub Actions</span>
-              <span class="tag">Jenkins</span>
-              <span class="tag">Renovate</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.observability">Observability</p>
-            <div class="tech-list">
-              <span class="tag">Grafana</span>
-              <span class="tag">Loki</span>
-              <span class="tag">Mimir</span>
-              <span class="tag">Prometheus</span>
-              <span class="tag">Grafana Alloy</span>
-              <span class="tag">Gatus</span>
-              <span class="tag">Netdata</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.networking">Networking</p>
-            <div class="tech-list">
-              <span class="tag">Traefik</span>
-              <span class="tag">Nginx</span>
-              <span class="tag">Apache</span>
-              <span class="tag">MetalLB</span>
-              <span class="tag">AdGuard Home</span>
-              <span class="tag">Cloudflare DNS</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.storage">Storage &amp; secrets</p>
-            <div class="tech-list">
-              <span class="tag">MinIO</span>
-              <span class="tag">OpenBao (Vault)</span>
-              <span class="tag">democratic-csi</span>
-              <span class="tag">TrueNAS</span>
-              <span class="tag">RAID / ZFS</span>
-              <span class="tag">cert-manager</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.servers">Servers</p>
-            <div class="tech-list">
-              <span class="tag">Linux (Debian / RHEL)</span>
-              <span class="tag">Proxmox</span>
-              <span class="tag">Python</span>
-              <span class="tag">Bash scripting</span>
-            </div>
-          </div>
-        </details>
-      </div>
 
-      <div class="skill-block">
-        <div class="skill-top">
-          <h3 data-i18n="skill.data.title">Data Engineering &amp; AI</h3>
-          <p data-i18n="skill.data.desc">Building pipelines that move and transform data, modelling databases, and applying machine learning to text and structured data.</p>
+        <div class="skill-block">
+          <div class="skill-top">
+            <h3 data-i18n="skill.data.title">Data Engineering &amp; AI</h3>
+            <p data-i18n="skill.data.desc">Building pipelines that move and transform data, modelling databases, and applying machine learning to text and structured data.</p>
+          </div>
+          <details>
+            <summary data-i18n="details.summary">Technologies</summary>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.databases">Databases &amp; warehousing</p>
+              <div class="tech-list">
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">SQL Server</span>
+                <span class="tag">MariaDB</span>
+                <span class="tag">Redis</span>
+                <span class="tag">Data Warehousing</span>
+                <span class="tag">ETL / ELT Pipelines</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.ml">Machine learning &amp; NLP</p>
+              <div class="tech-list">
+                <span class="tag">PyTorch</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">LDA Topic Modelling</span>
+                <span class="tag">Named Entity Recognition</span>
+              </div>
+            </div>
+          </details>
         </div>
-        <details>
-          <summary data-i18n="details.summary">Technologies</summary>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.databases">Databases &amp; warehousing</p>
-            <div class="tech-list">
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">SQL Server</span>
-              <span class="tag">MariaDB</span>
-              <span class="tag">Redis</span>
-              <span class="tag">Data Warehousing</span>
-              <span class="tag">ETL / ELT Pipelines</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.ml">Machine learning &amp; NLP</p>
-            <div class="tech-list">
-              <span class="tag">PyTorch</span>
-              <span class="tag">Scikit-learn</span>
-              <span class="tag">LDA Topic Modelling</span>
-              <span class="tag">Named Entity Recognition</span>
-            </div>
-          </div>
-        </details>
-      </div>
 
-      <div class="skill-block">
-        <div class="skill-top">
-          <h3 data-i18n="skill.security.title">Infrastructure Security</h3>
-          <p data-i18n="skill.security.desc">Protecting services at every layer: network perimeter, runtime behaviour, secrets management and continuous security auditing.</p>
+        <div class="skill-block">
+          <div class="skill-top">
+            <h3 data-i18n="skill.sec.title">Infrastructure Security</h3>
+            <p data-i18n="skill.sec.desc">Protecting services at every layer: network perimeter, runtime behaviour, secrets management and continuous security auditing.</p>
+          </div>
+          <details>
+            <summary data-i18n="details.summary">Technologies</summary>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.threats">Threat detection &amp; response</p>
+              <div class="tech-list">
+                <span class="tag">Wazuh (SIEM / HIDS)</span>
+                <span class="tag">Falco</span>
+                <span class="tag">Crowdsec</span>
+                <span class="tag">Fail2ban</span>
+                <span class="tag">ClamAV</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.auditing">Auditing &amp; hardening</p>
+              <div class="tech-list">
+                <span class="tag">kube-bench</span>
+                <span class="tag">Lynis</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.perimeter">Network perimeter</p>
+              <div class="tech-list">
+                <span class="tag">Unifi IDS/IPS</span>
+                <span class="tag">WireGuard VPN</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <p class="tech-group-label" data-i18n="tg.secrets">Secrets &amp; access</p>
+              <div class="tech-list">
+                <span class="tag">OpenBao (Vault)</span>
+                <span class="tag">Vault Secrets Operator</span>
+                <span class="tag">cert-manager</span>
+              </div>
+            </div>
+          </details>
         </div>
-        <details>
-          <summary data-i18n="details.summary">Technologies</summary>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.threats">Threat detection &amp; response</p>
-            <div class="tech-list">
-              <span class="tag">Wazuh (SIEM / HIDS)</span>
-              <span class="tag">Falco</span>
-              <span class="tag">Crowdsec</span>
-              <span class="tag">Fail2ban</span>
-              <span class="tag">ClamAV</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.auditing">Auditing &amp; hardening</p>
-            <div class="tech-list">
-              <span class="tag">kube-bench</span>
-              <span class="tag">Lynis</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.perimeter">Network perimeter</p>
-            <div class="tech-list">
-              <span class="tag">Unifi IDS/IPS</span>
-              <span class="tag">WireGuard VPN</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <p class="tech-group-label" data-i18n="tg.secrets">Secrets &amp; access</p>
-            <div class="tech-list">
-              <span class="tag">OpenBao (Vault)</span>
-              <span class="tag">Vault Secrets Operator</span>
-              <span class="tag">cert-manager</span>
-            </div>
-          </div>
-        </details>
-      </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact -->
-<section>
-  <div class="container">
-    <div class="contact-box">
+  <section class="contact-section">
+    <div class="container">
       <h2 data-i18n="contact.title">Get in touch</h2>
-      <p data-i18n="contact.desc">Whether it's a project, a question, or just a conversation, feel free to reach out.</p>
+      <p class="contact-desc" data-i18n="contact.desc">Whether it's a project, a question, or just a conversation, feel free to reach out.</p>
       <div class="contact-icon-links">
         <a class="contact-icon-link" href="mailto:florian.klement@gmx.net" aria-label="Email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -655,157 +312,14 @@
         </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
 <footer>
-  <div class="container">
-    <span data-i18n="footer">Florian Klement · Vienna · 2026</span>
-  </div>
+  <span data-i18n="footer">Florian Klement · Vienna · 2026</span>
 </footer>
 
-<script>
-(function () {
-  /* ── TRANSLATIONS ──────────────────────────────── */
-  const t = {
-    en: {
-      subtitle:          "DevOps, Web & Mobile Engineer · Vienna",
-      tagline:           "I build the software people use and the infrastructure it runs on. From mobile apps to automated server pipelines, I work across the full stack.",
-      "section.areas":   "Areas of work",
-      "card.apps.title": "Web & mobile apps",
-      "card.apps.desc":  "Building interfaces that run in the browser or on your phone, connected to solid backend services.",
-      "card.deploy.title": "Deployment & automation",
-      "card.deploy.desc":  "Setting up the systems that test and ship software automatically, so teams focus on building instead of releasing.",
-      "card.data.title": "Data engineering",
-      "card.data.desc":  "Designing pipelines that collect, clean and organise raw data into something teams can actually use.",
-      "card.infra.title": "Infrastructure & security",
-      "card.infra.desc":  "Running servers and networks, keeping traffic routed correctly and systems protected from the outside.",
-      "section.skills":  "Skills & expertise",
-      "skill.web.title": "Web & Mobile Development",
-      "skill.web.desc":  "Full-stack applications from database to user interface, including cross-platform mobile development with React Native.",
-      "skill.devops.title": "DevOps & Infrastructure",
-      "skill.devops.desc":  "Containers, orchestration and CI/CD pipelines that take code from a developer's machine into production reliably.",
-      "skill.data.title": "Data Engineering & AI",
-      "skill.data.desc":  "Building pipelines that move and transform data, modelling databases, and applying machine learning to text and structured data.",
-      "skill.security.title": "Infrastructure Security",
-      "skill.security.desc":  "Protecting services at every layer: network perimeter, runtime behaviour, secrets management and continuous security auditing.",
-      "tg.languages":    "Languages",
-      "tg.frontend":     "Frontend & mobile",
-      "tg.backend":      "Backend & API",
-      "tg.quality":      "Quality",
-      "tg.containers":   "Containers & orchestration",
-      "tg.cicd":         "CI/CD & dependency management",
-      "tg.observability":"Observability",
-      "tg.networking":   "Networking",
-      "tg.storage":      "Storage & secrets",
-      "tg.servers":      "Servers",
-      "tg.databases":    "Databases & warehousing",
-      "tg.ml":           "Machine learning & NLP",
-      "tg.threats":      "Threat detection & response",
-      "tg.auditing":     "Auditing & hardening",
-      "tg.perimeter":    "Network perimeter",
-      "tg.secrets":      "Secrets & access",
-      "details.summary": "Technologies",
-      "contact.title":   "Get in touch",
-      "contact.desc":    "Whether it's a project, a question, or just a conversation, feel free to reach out.",
-      footer:            "Florian Klement · Vienna · 2026",
-    },
-    de: {
-      subtitle:          "DevOps, Web & Mobile Engineer · Wien",
-      tagline:           "Ich entwickle Software und die Infrastruktur, auf der sie läuft. Von mobilen Apps bis zu automatisierten Server-Pipelines arbeite ich über den gesamten Stack.",
-      "section.areas":   "Tätigkeitsfelder",
-      "card.apps.title": "Web- & Mobile-Apps",
-      "card.apps.desc":  "Oberflächen, die im Browser oder auf dem Smartphone laufen, verbunden mit stabilen Backend-Diensten.",
-      "card.deploy.title": "Deployment & Automatisierung",
-      "card.deploy.desc":  "Systeme, die Software automatisch testen und ausliefern, damit Teams sich auf die Entwicklung konzentrieren können.",
-      "card.data.title": "Data Engineering",
-      "card.data.desc":  "Pipelines, die Rohdaten sammeln, bereinigen und so aufbereiten, dass Teams damit arbeiten können.",
-      "card.infra.title": "Infrastruktur & Sicherheit",
-      "card.infra.desc":  "Server und Netzwerke betreiben, Traffic korrekt routen und Systeme gegen externe Bedrohungen schützen.",
-      "section.skills":  "Skills & Kenntnisse",
-      "skill.web.title": "Web- & Mobile-Entwicklung",
-      "skill.web.desc":  "Full-Stack-Anwendungen von der Datenbank bis zur Oberfläche, einschließlich plattformübergreifender mobiler Apps mit React Native.",
-      "skill.devops.title": "DevOps & Infrastruktur",
-      "skill.devops.desc":  "Container, Orchestrierung und CI/CD-Pipelines, die Code zuverlässig vom Entwickler-Rechner in die Produktion bringen.",
-      "skill.data.title": "Data Engineering & AI",
-      "skill.data.desc":  "Pipelines zum Transformieren von Daten, Datenbankmodellierung und Anwendung von maschinellem Lernen auf Text und strukturierte Daten.",
-      "skill.security.title": "Infrastruktursicherheit",
-      "skill.security.desc":  "Dienste auf allen Ebenen schützen: Netzwerkperimeter, Laufzeitverhalten, Secrets-Management und kontinuierliche Sicherheitsprüfung.",
-      "tg.languages":    "Sprachen",
-      "tg.frontend":     "Frontend & Mobil",
-      "tg.backend":      "Backend & API",
-      "tg.quality":      "Qualitätssicherung",
-      "tg.containers":   "Container & Orchestrierung",
-      "tg.cicd":         "CI/CD & Abhängigkeitsverwaltung",
-      "tg.observability":"Observability",
-      "tg.networking":   "Netzwerk",
-      "tg.storage":      "Storage & Secrets",
-      "tg.servers":      "Server",
-      "tg.databases":    "Datenbanken & Warehousing",
-      "tg.ml":           "Maschinelles Lernen & NLP",
-      "tg.threats":      "Bedrohungserkennung",
-      "tg.auditing":     "Auditing & Härtung",
-      "tg.perimeter":    "Netzwerkperimeter",
-      "tg.secrets":      "Secrets & Zugriff",
-      "details.summary": "Technologien",
-      "contact.title":   "Kontakt",
-      "contact.desc":    "Ob Projekt, Frage oder einfach ein Gespräch, gerne melden.",
-      footer:            "Florian Klement · Wien · 2026",
-    }
-  };
-
-  /* ── LANGUAGE ──────────────────────────────────── */
-  const systemLang = navigator.language.startsWith('de') ? 'de' : 'en';
-  let lang = localStorage.getItem('lang') || systemLang;
-
-  function applyLang(l) {
-    lang = l;
-    localStorage.setItem('lang', l);
-    document.documentElement.lang = l;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (t[l][key] !== undefined) el.textContent = t[l][key];
-    });
-    document.getElementById('lang-btn').textContent = l === 'en' ? 'DE' : 'EN';
-  }
-
-  document.getElementById('lang-btn').addEventListener('click', () => {
-    applyLang(lang === 'en' ? 'de' : 'en');
-  });
-
-  /* ── THEME ─────────────────────────────────────── */
-  const moon = document.getElementById('icon-moon');
-  const sun  = document.getElementById('icon-sun');
-
-  function isDark() {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  }
-
-  function applyTheme(dark) {
-    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
-    moon.style.display = dark ? 'none' : '';
-    sun.style.display  = dark ? ''     : 'none';
-  }
-
-  document.getElementById('theme-btn').addEventListener('click', () => {
-    applyTheme(!isDark());
-  });
-
-  /* ── INIT ──────────────────────────────────────── */
-  applyLang(lang);
-  applyTheme(isDark());
-
-  /* keep in sync if system preference changes and no manual override */
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (!localStorage.getItem('theme')) applyTheme(e.matches);
-  });
-})();
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>
