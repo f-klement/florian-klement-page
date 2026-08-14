@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Florian Klement</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%233b82f6' d='M26 14.5a7.5 7.5 0 0 0-14.6-2.3A6 6 0 1 0 7 24h19a5.5 5.5 0 0 0 0-11z'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><path fill='%23ffffff' d='M25 14.5a6.5 6.5 0 0 0-12.7-2A5 5 0 1 0 8 22h17a4.5 4.5 0 0 0 0-9z'/></svg>" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -168,11 +168,11 @@
 
     .hero-photo { flex-shrink: 0; }
     .hero-photo img {
-      width: 130px;
-      height: 130px;
+      width: 148px;
+      height: 148px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center 18%;
+      object-position: center 26%;
       border: 2px solid #334155;
       display: block;
     }
@@ -180,7 +180,7 @@
     @media (max-width: 600px) {
       .hero-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
       .hero-photo { order: -1; }
-      .hero-photo img { width: 96px; height: 96px; }
+      .hero-photo img { width: 108px; height: 108px; }
     }
 
     /* ── LAYOUT ─────────────────────────────────────── */
@@ -230,10 +230,14 @@
     /* ── SKILL BLOCKS ───────────────────────────────── */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.25rem;
       align-items: start;
     }
+    @media (max-width: 560px) {
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+
     .skill-block {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -716,7 +720,7 @@
       "card.apps.desc":  "Oberflächen, die im Browser oder auf dem Smartphone laufen, verbunden mit stabilen Backend-Diensten.",
       "card.deploy.title": "Deployment & Automatisierung",
       "card.deploy.desc":  "Systeme, die Software automatisch testen und ausliefern, damit Teams sich auf die Entwicklung konzentrieren können.",
-      "card.data.title": "Datentechnik",
+      "card.data.title": "Data Engineering",
       "card.data.desc":  "Pipelines, die Rohdaten sammeln, bereinigen und so aufbereiten, dass Teams damit arbeiten können.",
       "card.infra.title": "Infrastruktur & Sicherheit",
       "card.infra.desc":  "Server und Netzwerke betreiben, Traffic korrekt routen und Systeme gegen externe Bedrohungen schützen.",
@@ -725,7 +729,7 @@
       "skill.web.desc":  "Full-Stack-Anwendungen von der Datenbank bis zur Oberfläche, einschließlich plattformübergreifender mobiler Apps mit React Native.",
       "skill.devops.title": "DevOps & Infrastruktur",
       "skill.devops.desc":  "Container, Orchestrierung und CI/CD-Pipelines, die Code zuverlässig vom Entwickler-Rechner in die Produktion bringen.",
-      "skill.data.title": "Datentechnik & KI",
+      "skill.data.title": "Data Engineering & AI",
       "skill.data.desc":  "Pipelines zum Transformieren von Daten, Datenbankmodellierung und Anwendung von maschinellem Lernen auf Text und strukturierte Daten.",
       "skill.security.title": "Infrastruktursicherheit",
       "skill.security.desc":  "Dienste auf allen Ebenen schützen: Netzwerkperimeter, Laufzeitverhalten, Secrets-Management und kontinuierliche Sicherheitsprüfung.",
