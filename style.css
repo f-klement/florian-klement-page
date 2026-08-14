@@ -93,7 +93,6 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 
-.page-wrap { overflow-x: clip; }
 
 * { overflow-wrap: break-word; min-width: 0; }
 
