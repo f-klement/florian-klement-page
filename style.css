@@ -121,7 +121,6 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   cursor: pointer;
-  backdrop-filter: blur(8px);
   transition: border-color 0.15s, color 0.15s;
 }
 
