@@ -8,7 +8,7 @@ window.I18N_EXTRA = {
     "hl.intro":           "Four nodes running K3s and a TrueNAS SCALE storage host that is part of the same layout, fronted by a UniFi edge. The whole platform is rebuilt from a bootstrap script that seeds secrets and installs Argo CD, which then installs everything else from git; adding a file to one directory is how a component is deployed. Two manual steps remain, both inherent: the one-time initialisation of the secrets store and seeding the secret values. The numbers below are a snapshot from September 2026.",
 
     "hl.stat.nodes":      "nodes",
-    "hl.stat.nodes.sub":  "20 cores, 80 GB memory, storage host included",
+    "hl.stat.nodes.sub":  "20 cores, 80 GB RAM, incl. storage host",
     "hl.stat.pods":       "pods",
     "hl.stat.pods.sub":   "144 containers, 25 namespaces",
     "hl.stat.argo":       "Argo CD applications",
@@ -197,7 +197,7 @@ window.I18N_EXTRA = {
     "hl.intro":           "Vier Nodes mit K3s und ein TrueNAS-SCALE-Storage-Host, der Teil desselben Layouts ist, davor ein UniFi-Edge. Die gesamte Plattform wird aus einem Bootstrap-Skript neu aufgebaut, das Secrets einspielt und Argo CD installiert, das dann alles Weitere aus git installiert; eine Datei in einem Verzeichnis anzulegen ist der Weg, eine Komponente auszurollen. Zwei manuelle Schritte bleiben, beide inhärent: die einmalige Initialisierung des Secrets-Speichers und das Einspielen der Secret-Werte. Die Zahlen unten sind ein Snapshot vom September 2026.",
 
     "hl.stat.nodes":      "Nodes",
-    "hl.stat.nodes.sub":  "20 Kerne, 80 GB Arbeitsspeicher, Storage-Host inklusive",
+    "hl.stat.nodes.sub":  "20 Kerne, 80 GB RAM, inkl. Storage-Host",
     "hl.stat.pods":       "Pods",
     "hl.stat.pods.sub":   "144 Container, 25 Namespaces",
     "hl.stat.argo":       "Argo-CD-Applications",
