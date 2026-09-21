@@ -32,7 +32,7 @@ window.I18N_EXTRA = {
     "dg.dnsonly":         "DNS-only hosts",
     "dg.compute":         "Compute: K3s, 4 nodes",
     "dg.traefik":         "Traefik ingress",
-    "dg.traefik.sub":     "single entry point, floating VIP",
+    "dg.traefik.sub":     "single entry point, MetalLB VIP",
     "dg.mw":              "CrowdSec + Authelia",
     "dg.mw.sub":          "WAF, bans, forwardAuth",
     "dg.apps":            "Application workloads",
@@ -151,7 +151,7 @@ window.I18N_EXTRA = {
 
     "hl.security.title":  "Security",
     "hl.security.lead":   "Five tools, five boundaries, one pane. Each covers something the others cannot see, and all of them forward into Wazuh.",
-    "hl.security.p1":     "The edge router handles packets and intrusion prevention. CrowdSec reads the ingress logs and runs an application layer WAF, banning at the edge with escalating durations; a firewall bouncer on every node drops banned sources on all ports, and its chains fail open, so a crash costs protection, never access. Falco watches syscalls through eBPF, ClamAV scans on a schedule, Lynis audits host posture weekly.",
+    "hl.security.p1":     "Ingress arrives on a MetalLB address that floats with the Traefik pod. It replaced the K3s default load balancer, which masqueraded every request to one internal address, so every client looked the same and there was nothing to ban. The edge router handles packets and intrusion prevention. CrowdSec reads the ingress logs and runs an application layer WAF, banning at the edge with escalating durations; a firewall bouncer on every node drops banned sources on all ports, and its chains fail open, so a crash costs protection, never access. Falco watches syscalls through eBPF, ClamAV scans on a schedule, Lynis audits host posture weekly.",
     "hl.security.p2":     "Wazuh (HIDS and SIEM) correlates all of it, with curated realtime file integrity monitoring on every node. The two hosts that cannot run an agent, the NAS and the router, report over syslog through a relay so both Loki and Wazuh receive a copy. High severity alerts page via Telegram.",
     "hl.security.p3":     "Argo CD is the most privileged workload and is fenced accordingly: a default deny NetworkPolicy pair limits it to DNS, the API server and outbound HTTPS. The chart's own policies had to be disabled to get there, because its shipped server policy allowed ingress from every pod in the cluster, and NetworkPolicies are additive. Found by reading the live object, not the chart.",
 
@@ -220,7 +220,7 @@ window.I18N_EXTRA = {
     "dg.dnsonly":         "Hosts nur per DNS",
     "dg.compute":         "Compute: K3s, 4 Nodes",
     "dg.traefik":         "Traefik-Ingress",
-    "dg.traefik.sub":     "einziger Eingang, wandernde VIP",
+    "dg.traefik.sub":     "einziger Eingang, MetalLB-VIP",
     "dg.mw":              "CrowdSec + Authelia",
     "dg.mw.sub":          "WAF, Sperren, forwardAuth",
     "dg.apps":            "Anwendungs-Workloads",
@@ -339,7 +339,7 @@ window.I18N_EXTRA = {
 
     "hl.security.title":  "Sicherheit",
     "hl.security.lead":   "Fünf Werkzeuge, fünf Grenzen, eine Oberfläche. Jedes deckt ab, was die anderen nicht sehen können, und alle leiten an Wazuh weiter.",
-    "hl.security.p1":     "Der Edge-Router übernimmt Pakete und Intrusion Prevention. CrowdSec liest die Ingress-Logs und betreibt eine WAF auf Anwendungsebene, sperrt am Edge mit eskalierenden Dauern; ein Firewall-Bouncer auf jedem Node verwirft gesperrte Quellen auf allen Ports, und seine Chains fallen offen aus, ein Absturz kostet also Schutz, nie Zugang. Falco beobachtet Syscalls über eBPF, ClamAV scannt nach Zeitplan, Lynis prüft wöchentlich die Host-Härtung.",
+    "hl.security.p1":     "Ingress kommt auf einer MetalLB-Adresse an, die mit dem Traefik-Pod wandert. Sie ersetzte den Standard-Load-Balancer von K3s, der jede Anfrage auf eine interne Adresse umschrieb, sodass alle Clients gleich aussahen und es nichts zu sperren gab. Der Edge-Router übernimmt Pakete und Intrusion Prevention. CrowdSec liest die Ingress-Logs und betreibt eine WAF auf Anwendungsebene, sperrt am Edge mit eskalierenden Dauern; ein Firewall-Bouncer auf jedem Node verwirft gesperrte Quellen auf allen Ports, und seine Chains fallen offen aus, ein Absturz kostet also Schutz, nie Zugang. Falco beobachtet Syscalls über eBPF, ClamAV scannt nach Zeitplan, Lynis prüft wöchentlich die Host-Härtung.",
     "hl.security.p2":     "Wazuh (HIDS und SIEM) korreliert alles, mit kuratierter Echtzeit-Dateiintegritätsüberwachung auf jedem Node. Die beiden Hosts, die keinen Agenten ausführen können, das NAS und der Router, melden per Syslog über ein Relay, sodass Loki und Wazuh je eine Kopie erhalten. Alarme hoher Stufe gehen per Telegram raus.",
     "hl.security.p3":     "Argo CD ist der privilegierteste Workload und entsprechend eingezäunt: Ein Default-Deny-NetworkPolicy-Paar beschränkt es auf DNS, den API-Server und ausgehendes HTTPS. Die eigenen Policies des Charts mussten dafür abgeschaltet werden, weil die mitgelieferte Server-Policy Ingress von jedem Pod im Cluster erlaubte, und NetworkPolicies sind additiv. Gefunden durch Lesen des Live-Objekts, nicht des Charts.",
 

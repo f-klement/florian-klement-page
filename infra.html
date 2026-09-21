@@ -125,7 +125,7 @@
     <text class="dg-sub" x="452" y="215">:443</text>
     <rect class="dg-box" x="340" y="260" width="200" height="52" rx="8"/>
     <text class="dg-title" x="440.0" y="282.0" text-anchor="middle" data-i18n="dg.traefik">Traefik ingress</text>
-    <text class="dg-sub" x="440.0" y="299.0" text-anchor="middle" data-i18n="dg.traefik.sub">single entry point, floating VIP</text>
+    <text class="dg-sub" x="440.0" y="299.0" text-anchor="middle" data-i18n="dg.traefik.sub">single entry point, MetalLB VIP</text>
     <rect class="dg-box" x="600" y="260" width="200" height="52" rx="8"/>
     <text class="dg-title" x="700.0" y="282.0" text-anchor="middle" data-i18n="dg.mw">CrowdSec + Authelia</text>
     <text class="dg-sub" x="700.0" y="299.0" text-anchor="middle" data-i18n="dg.mw.sub">WAF, bans, forwardAuth</text>
@@ -266,7 +266,7 @@
     <path class="dg-edge" d="M 560 185 H 640" marker-end="url(#dg-arrow)"/>
 </svg>
             </div>
-            <p data-i18n="hl.security.p1">The edge router handles packets and intrusion prevention. CrowdSec reads the ingress logs and runs an application layer WAF, banning at the edge with escalating durations; a firewall bouncer on every node drops banned sources on all ports, and its chains fail open, so a crash costs protection, never access. Falco watches syscalls through eBPF, ClamAV scans on a schedule, Lynis audits host posture weekly.</p>
+            <p data-i18n="hl.security.p1">Ingress arrives on a MetalLB address that floats with the Traefik pod. It replaced the K3s default load balancer, which masqueraded every request to one internal address, so every client looked the same and there was nothing to ban. The edge router handles packets and intrusion prevention. CrowdSec reads the ingress logs and runs an application layer WAF, banning at the edge with escalating durations; a firewall bouncer on every node drops banned sources on all ports, and its chains fail open, so a crash costs protection, never access. Falco watches syscalls through eBPF, ClamAV scans on a schedule, Lynis audits host posture weekly.</p>
             <p data-i18n="hl.security.p2">Wazuh (HIDS and SIEM) correlates all of it, with curated realtime file integrity monitoring on every node. The two hosts that cannot run an agent, the NAS and the router, report over syslog through a relay so both Loki and Wazuh receive a copy. High severity alerts page via Telegram.</p>
             <p data-i18n="hl.security.p3">Argo CD is the most privileged workload and is fenced accordingly: a default deny NetworkPolicy pair limits it to DNS, the API server and outbound HTTPS. The chart's own policies had to be disabled to get there, because its shipped server policy allowed ingress from every pod in the cluster, and NetworkPolicies are additive. Found by reading the live object, not the chart.</p>
             </div>
