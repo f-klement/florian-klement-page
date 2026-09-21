@@ -4,6 +4,7 @@
     en: {
       subtitle:             "DevOps, Web & Mobile Engineer · Vienna",
       tagline:              "I build the software people use and the infrastructure it runs on. From mobile apps to automated server pipelines, I work across the full stack.",
+      "page.title":         "Florian Klement",
       "nav.infra":          "Infrastructure",
       "nav.background":     "Background",
       "section.areas":      "Areas of work",
@@ -41,8 +42,14 @@
       "tg.perimeter":       "Network perimeter",
       "tg.secrets":         "Secrets & access",
       "details.summary":    "Technologies",
+      "ctrl.lang":          "Switch language",
+      "ctrl.theme":         "Toggle theme",
+      "nav.label":          "Main",
       "section.projects":   "Selected projects",
       "project.more":       "Architecture \u2192",
+      "project.infra.title":   "Private infrastructure",
+      "project.gothic.title":  "Gothic fiction pattern detection",
+      "project.truenas.title": "TrueNAS hardware control",
       "project.endpaper.desc": "A self-hosted catalogue for the books you share, at home or in an archive. A React web client on a FastAPI backend, with a React Native app in development.",
       "project.infra.desc":  "A four-node Kubernetes platform backed by TrueNAS, reproducible from code. GitOps delivery with Argo CD, a full observability stack and layered security feeding one SIEM.",
       "project.gothic.desc":   "Master's thesis applying distant reading to a corpus of gothic fiction: topic modelling, named entity recognition and network analysis to surface recurring patterns across the genre.",
@@ -54,6 +61,7 @@
     de: {
       subtitle:             "DevOps, Web & Mobile Engineer · Wien",
       tagline:              "Ich entwickle Software und die Infrastruktur, auf der sie läuft. Von mobilen Apps bis zu automatisierten Server-Pipelines arbeite ich über den gesamten Stack.",
+      "page.title":         "Florian Klement",
       "nav.infra":          "Infrastruktur",
       "nav.background":     "Hintergrund",
       "section.areas":      "Tätigkeitsfelder",
@@ -91,8 +99,14 @@
       "tg.perimeter":       "Netzwerkperimeter",
       "tg.secrets":         "Secrets & Zugriff",
       "details.summary":    "Technologien",
+      "ctrl.lang":          "Sprache wechseln",
+      "ctrl.theme":         "Design wechseln",
+      "nav.label":          "Hauptnavigation",
       "section.projects":   "Ausgewählte Projekte",
       "project.more":       "Architektur \u2192",
+      "project.infra.title":   "Private Infrastruktur",
+      "project.gothic.title":  "Mustererkennung in der Schauerliteratur",
+      "project.truenas.title": "TrueNAS-Hardwaresteuerung",
       "project.endpaper.desc": "Ein selbst gehosteter Katalog für Bücher, die man teilt, zu Hause oder in einem Archiv. Ein React-Web-Client auf einem FastAPI-Backend, eine React-Native-App ist in Entwicklung.",
       "project.infra.desc":  "Eine Kubernetes-Plattform auf vier Nodes mit TrueNAS als Storage, aus Code reproduzierbar. GitOps-Delivery mit Argo CD, vollständiger Observability-Stack und mehrschichtige Sicherheit, die in ein SIEM mündet.",
       "project.gothic.desc":   "Masterarbeit zur Anwendung von Distant Reading auf ein Korpus der Schauerliteratur: Topic Modelling, Named Entity Recognition und Netzwerkanalyse, um wiederkehrende Muster im Genre sichtbar zu machen.",
@@ -120,6 +134,10 @@
       if (t[l][key] !== undefined) el.textContent = t[l][key];
     });
     document.getElementById('lang-btn').textContent = l === 'en' ? 'DE' : 'EN';
+    document.getElementById('lang-btn').setAttribute('aria-label', t[l]['ctrl.lang']);
+    document.getElementById('theme-btn').setAttribute('aria-label', t[l]['ctrl.theme']);
+    document.querySelector('.topbar').setAttribute('aria-label', t[l]['nav.label']);
+    if (t[l]['page.title']) document.title = t[l]['page.title'];
   }
 
   document.getElementById('lang-btn').addEventListener('click', () => {

@@ -1,6 +1,7 @@
 // Strings for background.html. Merged into the main dictionary by main.js.
 window.I18N_EXTRA = {
   en: {
+    "page.title": "Background · Florian Klement",
     "bg.title":    "Background",
     "bg.subtitle": "What I have been responsible for, and what trained me for it",
     "bg.intro":    "The overview page says what I do. This page says what that has meant in practice: the responsibilities I have carried across data, delivery and platform work, the studies behind them and the courses taken since. Grouped by theme rather than by station, because the themes are what carry over.",
@@ -99,6 +100,7 @@ window.I18N_EXTRA = {
     "bg.cert11.desc":  "Cambridge ESOL, Level 2.",
   },
   de: {
+    "page.title": "Hintergrund · Florian Klement",
     "bg.title":    "Hintergrund",
     "bg.subtitle": "Wofür ich verantwortlich war, und was mich darauf vorbereitet hat",
     "bg.intro":    "Die Übersichtsseite sagt, was ich mache. Diese Seite sagt, was das in der Praxis bedeutet hat: die Verantwortungen, die ich in Daten-, Delivery- und Plattformarbeit getragen habe, das Studium dahinter und die Kurse seither. Nach Themen gruppiert statt nach Stationen, weil die Themen das sind, was bleibt.",

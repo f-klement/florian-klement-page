@@ -1,6 +1,7 @@
 // Strings for infra.html. Merged into the main dictionary by main.js.
 window.I18N_EXTRA = {
   en: {
+    "page.title": "Private infrastructure · Florian Klement",
     "hl.back":            "Back to overview",
     "hl.title":           "Private infrastructure",
     "hl.subtitle":        "A self-hosted Kubernetes platform, reproducible from code",
@@ -189,6 +190,7 @@ window.I18N_EXTRA = {
     "hl.limit3":          "A NAS reboot is a cluster event. It takes the LXC node down and, because the CI node hangs off the same bridge, CI with it.",
   },
   de: {
+    "page.title": "Private Infrastruktur · Florian Klement",
     "hl.back":            "Zurück zur Übersicht",
     "hl.title":           "Private Infrastruktur",
     "hl.subtitle":        "Eine selbst gehostete Kubernetes-Plattform, aus Code reproduzierbar",
