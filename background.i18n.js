@@ -10,7 +10,7 @@ window.I18N_EXTRA = {
     "bg.section.edu":    "Studies",
     "bg.section.certs":  "Certificates & courses",
     "bg.section.reading": "Selected books",
-    "bg.reading.intro": "Technical books I can recommend, grouped by topic. Not everything I have read, only the titles worth someone else's time, plus two podcasts in the same spirit.",
+    "bg.reading.intro": "A selection of the technical literature and podcasts I can recommend.",
     "bg.readgroup.data": "Data analysis & statistics",
     "bg.readgroup.de": "Data engineering & databases",
     "bg.readgroup.ops": "DevOps & platform",
@@ -21,6 +21,7 @@ window.I18N_EXTRA = {
     "bg.readgroup.pod": "Podcasts",
     "bg.pod1.desc": "Two engineers read a software book a week and talk it through.",
     "bg.pod2.desc": "Gergely Orosz in conversation with people who build and run software at scale.",
+    "bg.pod3.desc": "The c't 3003 crew on this week's tech, in German, every Thursday.",
 
     "bg.duty1.title": "Application modernisation",
     "bg.duty1.lead":  "Bringing legacy systems into the present without stopping the business that runs on them.",
@@ -112,7 +113,7 @@ window.I18N_EXTRA = {
     "bg.section.edu":    "Studium",
     "bg.section.certs":  "Zertifikate & Kurse",
     "bg.section.reading": "Ausgewählte Bücher",
-    "bg.reading.intro": "Fachbücher, die ich empfehlen kann, nach Themen gruppiert. Nicht alles, was ich gelesen habe, nur die Titel, die sich für andere lohnen, dazu zwei Podcasts in demselben Geist.",
+    "bg.reading.intro": "Eine Auswahl der Fachliteratur und Podcasts, die ich empfehlen kann.",
     "bg.readgroup.data": "Datenanalyse & Statistik",
     "bg.readgroup.de": "Data Engineering & Datenbanken",
     "bg.readgroup.ops": "DevOps & Plattform",
@@ -123,6 +124,7 @@ window.I18N_EXTRA = {
     "bg.readgroup.pod": "Podcasts",
     "bg.pod1.desc": "Zwei Entwickler lesen jede Woche ein Softwarebuch und besprechen es.",
     "bg.pod2.desc": "Gergely Orosz im Gespräch mit Leuten, die Software im großen Maßstab bauen und betreiben.",
+    "bg.pod3.desc": "Das c't-3003-Team über die Technikthemen der Woche, jeden Donnerstag.",
 
     "bg.duty1.title": "Anwendungsmodernisierung",
     "bg.duty1.lead":  "Altsysteme in die Gegenwart holen, ohne den Betrieb anzuhalten, der auf ihnen läuft.",
