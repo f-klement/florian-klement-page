@@ -946,3 +946,11 @@ footer {
 .book-link { color: var(--text); text-decoration: none; }
 .book-link::after { content: " \2197"; font-size: 0.8em; color: var(--accent); }
 .book-link:hover { color: var(--accent); }
+
+.community-body {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 640px;
+  margin-top: -0.75rem;
+}
