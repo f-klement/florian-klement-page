@@ -76,7 +76,7 @@ window.I18N_EXTRA = {
     "bg.cert7.title": "Data Visualization and Communication with Tableau",
     "bg.cert7.prov":  "Duke University · Coursera",
     "bg.cert7.desc":  "Visual analysis and presenting findings in Tableau.",
-    "bg.cert8.title": "Power BI Grundlagen",
+    "bg.cert8.title": "Power BI Fundamentals",
     "bg.cert8.prov":  "Udemy",
     "bg.cert8.desc":  "Reports and data models in Power BI.",
     "bg.cert9.title": "KNIME Analytics Platform",
