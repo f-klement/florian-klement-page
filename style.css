@@ -942,3 +942,7 @@ footer {
 
 .book-title  { font-size: 0.9rem; font-weight: 600; line-height: 1.4; }
 .book-author { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+.book-link { color: var(--text); text-decoration: none; }
+.book-link::after { content: " \2197"; font-size: 0.8em; color: var(--accent); }
+.book-link:hover { color: var(--accent); }
