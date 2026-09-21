@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private infrastructure · Florian Klement</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><path fill='%23ffffff' d='M25 14.5a6.5 6.5 0 0 0-12.7-2A5 5 0 1 0 8 22h17a4.5 4.5 0 0 0 0-9z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&family=Fraunces:opsz,wght@9..144,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+</head>
+<body>
+
+
+<div class="controls" role="toolbar">
+  <button class="ctrl-btn" id="lang-btn" aria-label="Switch language">DE</button>
+  <button class="ctrl-btn" id="theme-btn" aria-label="Toggle theme">
+    <svg id="icon-moon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/>
+      <line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/>
+      <line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  </button>
+</div>
+
+<header class="hero hero-compact">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <a class="back-link" href="index.html">&larr; <span data-i18n="hl.back">Back to overview</span></a>
+      <h1 data-i18n="hl.title">Private infrastructure</h1>
+      <p class="subtitle" data-i18n="hl.subtitle">A self-hosted Kubernetes platform, reproducible from code</p>
+      <p class="tagline" data-i18n="hl.intro">Four nodes running K3s, backed by a TrueNAS SCALE storage host and fronted by a UniFi edge. The whole platform is rebuilt from a bootstrap script and one Helm chart; the only manual step is the one-time initialisation of the secrets store. The numbers below are a snapshot from September 2026.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label" data-i18n="hl.stat.nodes">nodes</span>
+          <span class="stat-sub" data-i18n="hl.stat.nodes.sub">18 cores, 62 GiB memory</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">92</span>
+          <span class="stat-label" data-i18n="hl.stat.pods">pods</span>
+          <span class="stat-sub" data-i18n="hl.stat.pods.sub">144 containers, 25 namespaces</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">32</span>
+          <span class="stat-label" data-i18n="hl.stat.argo">Argo CD applications</span>
+          <span class="stat-sub" data-i18n="hl.stat.argo.sub">all auto-synced from main</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">60</span>
+          <span class="stat-label" data-i18n="hl.stat.deploy">Deployments</span>
+          <span class="stat-sub" data-i18n="hl.stat.deploy.sub">plus 39 CronJobs, 8 DaemonSets</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">36</span>
+          <span class="stat-label" data-i18n="hl.stat.netpol">NetworkPolicies</span>
+          <span class="stat-sub" data-i18n="hl.stat.netpol.sub">default deny where it matters</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">96</span>
+          <span class="stat-label" data-i18n="hl.stat.images">container images</span>
+          <span class="stat-sub" data-i18n="hl.stat.images.sub">every one pinned by digest</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="hl.section.arch">Architecture</p>
+      <div class="dg-wrap">
+<svg class="dg" viewBox="0 0 840 640" role="img" aria-label="Private infrastructure architecture: edge, compute and storage planes">
+  <defs>
+    <marker id="dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-arrowhead" d="M 0 0 L 10 5 L 0 10 z"/>
+    </marker>
+  </defs>
+    <rect class="dg-plane" x="60" y="20" width="760" height="180" rx="12"/>
+    <text class="dg-plane-label" x="76" y="42" data-i18n="dg.edge">Edge</text>
+    <rect class="dg-plane" x="60" y="220" width="760" height="230" rx="12"/>
+    <text class="dg-plane-label" x="76" y="242" data-i18n="dg.compute">Compute: K3s, 4 nodes</text>
+    <rect class="dg-plane" x="60" y="470" width="760" height="150" rx="12"/>
+    <text class="dg-plane-label" x="76" y="492" data-i18n="dg.storage">Storage: TrueNAS SCALE, bare metal</text>
+    <rect class="dg-box" x="80" y="60" width="160" height="40" rx="22"/>
+    <text class="dg-title" x="160.0" y="84.0" text-anchor="middle" data-i18n="dg.internet">Internet</text>
+    <rect class="dg-box" x="640" y="60" width="160" height="40" rx="22"/>
+    <text class="dg-title" x="720.0" y="84.0" text-anchor="middle" data-i18n="dg.lan">LAN clients</text>
+    <rect class="dg-box" x="80" y="130" width="220" height="52" rx="8"/>
+    <text class="dg-title" x="190.0" y="152.0" text-anchor="middle" data-i18n="dg.cf">Cloudflare proxy</text>
+    <text class="dg-sub" x="190.0" y="169.0" text-anchor="middle" data-i18n="dg.cf.sub">WAF and rate limiting, opt-in per host</text>
+    <rect class="dg-box" x="340" y="130" width="200" height="52" rx="8"/>
+    <text class="dg-title" x="440.0" y="152.0" text-anchor="middle" data-i18n="dg.router">UniFi edge router</text>
+    <text class="dg-sub" x="440.0" y="169.0" text-anchor="middle" data-i18n="dg.router.sub">firewall, NAT, WireGuard</text>
+    <path class="dg-edge" d="M 160 100 V 130" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge" d="M 300 156 H 340" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge dg-dashed" d="M 240 80 H 440 V 130" marker-end="url(#dg-arrow)"/>
+    <text class="dg-sub" x="330" y="74" text-anchor="middle" data-i18n="dg.dnsonly">DNS-only hosts</text>
+    <path class="dg-edge" d="M 720 100 V 156 H 540" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge" d="M 440 182 V 260" marker-end="url(#dg-arrow)"/>
+    <text class="dg-sub" x="452" y="215">:443</text>
+    <rect class="dg-box" x="340" y="260" width="200" height="52" rx="8"/>
+    <text class="dg-title" x="440.0" y="282.0" text-anchor="middle" data-i18n="dg.traefik">Traefik ingress</text>
+    <text class="dg-sub" x="440.0" y="299.0" text-anchor="middle" data-i18n="dg.traefik.sub">single entry point, floating VIP</text>
+    <rect class="dg-box" x="600" y="260" width="200" height="52" rx="8"/>
+    <text class="dg-title" x="700.0" y="282.0" text-anchor="middle" data-i18n="dg.mw">CrowdSec + Authelia</text>
+    <text class="dg-sub" x="700.0" y="299.0" text-anchor="middle" data-i18n="dg.mw.sub">WAF, bans, forwardAuth</text>
+    <rect class="dg-box" x="80" y="360" width="340" height="60" rx="8"/>
+    <text class="dg-title" x="250.0" y="386.0" text-anchor="middle" data-i18n="dg.apps">Application workloads</text>
+    <text class="dg-sub" x="250.0" y="403.0" text-anchor="middle" data-i18n="dg.apps.sub">one Helm chart, 16 services</text>
+    <rect class="dg-box" x="460" y="360" width="340" height="60" rx="8"/>
+    <text class="dg-title" x="630.0" y="386.0" text-anchor="middle" data-i18n="dg.plat">Platform components</text>
+    <text class="dg-sub" x="630.0" y="403.0" text-anchor="middle" data-i18n="dg.plat.sub">19 Helm releases</text>
+    <path class="dg-edge" d="M 540 286 H 600" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge" d="M 440 312 V 336 H 250 V 360" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge" d="M 440 336 H 630 V 360" marker-end="url(#dg-arrow)"/>
+    <rect class="dg-box" x="80" y="510" width="720" height="60" rx="8"/>
+    <text class="dg-title" x="440.0" y="536.0" text-anchor="middle" data-i18n="dg.zfs">ZFS pools</text>
+    <text class="dg-sub" x="440.0" y="553.0" text-anchor="middle" data-i18n="dg.zfs.sub">NVMe tiers for configs and cluster volumes, HDD pool for bulk data</text>
+    <path class="dg-edge" d="M 250 420 V 510" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge" d="M 630 420 V 510" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge dg-dashed" d="M 80 540 H 42 V 335 H 60" marker-end="url(#dg-arrow)"/>
+    <text class="dg-sub" transform="translate(24 440) rotate(-90)" text-anchor="middle" data-i18n="dg.lxc">also hosts one K3s node as an LXC</text>
+</svg>
+      </div>
+      <p class="dg-caption" data-i18n="hl.arch.caption">The recursive edge is the thing to hold on to: the storage host also runs one of the compute nodes, as a privileged LXC sharing the host kernel. That single fact explains the storage placement rules, the loopback NFS deadlock described below, and why a NAS reboot is a cluster event.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="hl.section.layers">How it is built</p>
+      <div class="layers">
+        <div class="layer">
+          <div class="layer-top">
+            <div class="card-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 data-i18n="hl.delivery.title">Delivery</h3>
+              <p class="layer-lead" data-i18n="hl.delivery.lead">A merge to main is the deploy. Renovate proposes, CI gates, Argo CD applies, and no single credential can both author a change and ship it.</p>
+            </div>
+          </div>
+          <details>
+            <summary data-i18n="hl.details">How it works</summary>
+            <div class="layer-body">
+            <p data-i18n="hl.delivery.p1">GitLab CI runs tests, dependency audits and a Trivy scan for secrets, dependencies and the image before anything reaches the registry. Renovate opens version bump merge requests and automerges routine ones; roughly a dozen high blast radius packages and every major version wait for a human click.</p>
+            <p data-i18n="hl.delivery.p2">All 32 Argo CD applications auto-sync, so there is exactly one gate per change. Images are pinned by digest, each written in exactly one place. A gate that always passes is not a gate: where a second manual step was removed, it was replaced by a CI check that fails the merge, not by trust.</p>
+            <p data-i18n="hl.delivery.p3">Three things sit deliberately outside GitOps: node upgrades (they cordon nodes and swap binaries, not containers), the vendored Wazuh manifests, and secret values, which no reconciler can supply. Argo CD replaced a hand written redeploy poller that classified commits by changed path and misidentified more than half of the chart bumps.</p>
+            </div>
+          </details>
+        </div>
+        <div class="layer">
+          <div class="layer-top">
+            <div class="card-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 data-i18n="hl.security.title">Security</h3>
+              <p class="layer-lead" data-i18n="hl.security.lead">Five tools, five boundaries, one pane. Each covers something the others cannot see, and all of them forward into Wazuh.</p>
+            </div>
+          </div>
+          <details>
+            <summary data-i18n="hl.details">How it works</summary>
+            <div class="layer-body">
+            <p data-i18n="hl.security.p1">The edge router handles packets and intrusion prevention. CrowdSec reads the ingress logs and runs an application layer WAF, banning at the edge with escalating durations; a firewall bouncer on every node drops banned sources on all ports, and its chains fail open, so a crash costs protection, never access. Falco watches syscalls through eBPF, ClamAV scans on a schedule, Lynis audits host posture weekly.</p>
+            <p data-i18n="hl.security.p2">Wazuh (HIDS and SIEM) correlates all of it, with curated realtime file integrity monitoring on every node. The two hosts that cannot run an agent, the NAS and the router, report over syslog through a relay so both Loki and Wazuh receive a copy. High severity alerts page via Telegram.</p>
+            <p data-i18n="hl.security.p3">Argo CD is the most privileged workload and is fenced accordingly: a default deny NetworkPolicy pair limits it to DNS, the API server and outbound HTTPS. The chart's own policies had to be disabled to get there, because its shipped server policy allowed ingress from every pod in the cluster, and NetworkPolicies are additive. Found by reading the live object, not the chart.</p>
+            </div>
+          </details>
+        </div>
+        <div class="layer">
+          <div class="layer-top">
+            <div class="card-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 data-i18n="hl.observability.title">Observability</h3>
+              <p class="layer-lead" data-i18n="hl.observability.lead">Grafana Alloy collects logs, metrics and traces into Loki, Mimir and Tempo on MinIO. Alerting is split between the SIEM and Gatus, and the pager has a check that watches the pager.</p>
+            </div>
+          </div>
+          <details>
+            <summary data-i18n="hl.details">How it works</summary>
+            <div class="layer-body">
+            <p data-i18n="hl.observability.p1">All three signals persist to MinIO on NVMe. A nightly job mirrors the day's objects to a compressed dataset on the HDD pool, so the spinning disks stay asleep instead of absorbing continuous writes.</p>
+            <p data-i18n="hl.observability.p2">Gatus does not probe ports. Its interesting checks query Mimir: unavailable replicas anywhere in the app namespace, exporters that have stopped producing metrics, and Argo CD applications that can no longer be rendered. That last case is invisible from every other angle, because the pods keep running while the cluster silently stops tracking git.</p>
+            <p data-i18n="hl.observability.p3">Readiness probe coverage went from 7 to 19 of 31 containers, which is what gave the replica metric meaning: a container without a probe is Ready the moment it starts. Exporter sidecars deliberately have none, because a pod is only Ready when every container is, and a probe on a sidecar would pull the application out of its Service. Monitoring failure would cause an outage.</p>
+            </div>
+          </details>
+        </div>
+        <div class="layer">
+          <div class="layer-top">
+            <div class="card-icon purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 data-i18n="hl.identity.title">Identity</h3>
+              <p class="layer-lead" data-i18n="hl.identity.lead">One account per person in LLDAP, one group as the single access gate. Removing someone there revokes everything at once.</p>
+            </div>
+          </div>
+          <details>
+            <summary data-i18n="hl.details">How it works</summary>
+            <div class="layer-body">
+            <p data-i18n="hl.identity.p1">Authelia provides the login portal and acts as OIDC provider, binding read-only to LDAP. Browser-only apps sit behind forwardAuth. Apps with native clients that cannot follow a login redirect bind to LDAP directly. Argo CD uses both: forwardAuth keeps anonymous traffic off it entirely, and OIDC tells its own RBAC who you are.</p>
+            <p data-i18n="hl.identity.p2">LDAP rather than an OIDC-first design because it is the common denominator across the services that matter here. Apps behind forwardAuth are ClusterIP only: a NodePort would SNAT traffic into the pod CIDR that the identity header trusts, making it forgeable from any host on the LAN.</p>
+            </div>
+          </details>
+        </div>
+        <div class="layer">
+          <div class="layer-top">
+            <div class="card-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 2.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/>
+              </svg>
+            </div>
+            <div>
+              <h3 data-i18n="hl.storage.title">Storage</h3>
+              <p class="layer-lead" data-i18n="hl.storage.lead">ZFS on the NAS, three pools tuned by record size, three paths into pods. Databases stay off NFS by design.</p>
+            </div>
+          </div>
+          <details>
+            <summary data-i18n="hl.details">How it works</summary>
+            <div class="layer-body">
+            <p data-i18n="hl.storage.p1">An NVMe pool with small record sizes holds service configs and databases, bind-mounted as hostPath into the LXC node. A second NVMe pool backs democratic-csi for dynamically provisioned volumes (observability, Wazuh, Endpaper). The HDD pool serves bulk data over static NFS volumes and holds the cold archive and snapshot replication.</p>
+            <p data-i18n="hl.storage.p2">SQLite and MariaDB locking over NFS is unsafe, so anything database-bearing uses hostPath. iSCSI is impossible here: the LXC worker's network namespace blocks the kernel initiator, which is also why Longhorn was abandoned. Backups are ZFS snapshots replicated to a second pool, on-box only.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="hl.section.lessons">Lessons from incidents</p>
+      <ol class="lessons">
+        <li class="lesson">
+          <span class="lesson-num">01</span>
+          <div>
+            <h3 data-i18n="hl.lesson1.title">The loopback NFS deadlock</h3>
+            <p data-i18n="hl.lesson1.body">The LXC's NFS client and the host's NFS server share one kernel, one page cache and one reclaim path. Under a burst of concurrent writers an nfsd thread entered direct reclaim, landed on dirty pages of an NFS client mount, and waited on an RPC to a server whose every thread was in the same wait. Every export was down for hours and needed a power cut. The media path now bypasses the NFS client entirely via hostPath, which is a reduction, not a cure, and documented as such.</p>
+          </div>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">02</span>
+          <div>
+            <h3 data-i18n="hl.lesson2.title">Ready for 39 hours through a storage outage</h3>
+            <p data-i18n="hl.lesson2.body">A pod stayed healthy through a total storage outage because its probe ran a real query through an already open SQLite file descriptor served from page cache, while fresh opens on the same mount hung forever. A probe that reuses a long-lived handle measures the process, not its storage. Probes now perform a namespace operation with an internal timeout shorter than the probe timeout.</p>
+          </div>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">03</span>
+          <div>
+            <h3 data-i18n="hl.lesson3.title">The deploy console reachable from any pod</h3>
+            <p data-i18n="hl.lesson3.body">Argo CD's chart ships a NetworkPolicy for its server that allows ingress from any pod in any namespace. Policies are additive, so a narrower one cannot subtract it, and the console bypassed both the LAN-only allowlist and the login for anything inside the cluster. Found by reading the live object after install; fixed by disabling the chart's policies and writing a default deny pair.</p>
+          </div>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">04</span>
+          <div>
+            <h3 data-i18n="hl.lesson4.title">CI starving etcd</h3>
+            <p data-i18n="hl.lesson4.body">Build pods once saturated the control plane and restarted k3s 26 times in an afternoon. CI is now pinned hard to a dedicated node, not merely preferred, because a scheduling preference would let it recur under memory pressure, the exact condition that caused it.</p>
+          </div>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">05</span>
+          <div>
+            <h3 data-i18n="hl.lesson5.title">The alert that fired once</h3>
+            <p data-i18n="hl.lesson5.body">Gatus never re-notifies while an alert stays triggered, so an eight day outage produced exactly one message, on day one. Wazuh rules now provide the escalation Gatus structurally cannot, and every scheduled job whose only output is an exit status has something that reads that status. A suppression rule is replayed against real events rather than verified by reading, because silence cannot distinguish a working filter from a source that went quiet.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="hl.section.limits">Known constraints</p>
+      <ul class="limits">
+        <li data-i18n="hl.limit1">The LXC node runs privileged and unconfined, which the nested kubelet needs. A pod escape could reach host root and the bind-mounted datasets. An unprivileged migration with ID mapping is planned and clone-tested.</li>
+        <li data-i18n="hl.limit2">Backups are on-box only. Snapshots replicate to a second pool on the same host; there is no offsite copy yet.</li>
+        <li data-i18n="hl.limit3">A NAS reboot is a cluster event. It takes the LXC node down and, because the CI node hangs off the same bridge, CI with it.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span data-i18n="footer">Florian Klement · Vienna · 2026</span>
+</footer>
+
+<script src="infra.i18n.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -39,6 +39,12 @@
       "tg.perimeter":       "Network perimeter",
       "tg.secrets":         "Secrets & access",
       "details.summary":    "Technologies",
+      "section.projects":   "Selected projects",
+      "project.more":       "Architecture \u2192",
+      "project.endpaper.desc": "A self-hosted catalogue for the books you share, at home or in an archive. React web and React Native mobile clients on a FastAPI backend.",
+      "project.infra.desc":  "A four-node Kubernetes platform backed by TrueNAS, reproducible from code with a single manual step. GitOps delivery with Argo CD, a full observability stack and layered security feeding one SIEM.",
+      "project.gothic.desc":   "Master's thesis applying distant reading to a corpus of gothic fiction: topic modelling, named entity recognition and network analysis to surface recurring patterns across the genre.",
+      "project.truenas.desc":  "Scripts and configuration for controlling the fans and status lights of a UGREEN DXP4800 Plus running TrueNAS SCALE, hardware the OS does not manage on its own.",
       "contact.title":      "Get in touch",
       "contact.desc":       "Whether it's a project, a question, or just a conversation, feel free to reach out.",
       footer:               `Florian Klement · Vienna · ${year}`,
@@ -81,11 +87,22 @@
       "tg.perimeter":       "Netzwerkperimeter",
       "tg.secrets":         "Secrets & Zugriff",
       "details.summary":    "Technologien",
+      "section.projects":   "Ausgewählte Projekte",
+      "project.more":       "Architektur \u2192",
+      "project.endpaper.desc": "Ein selbst gehosteter Katalog für Bücher, die man teilt, zu Hause oder in einem Archiv. React-Web- und React-Native-Clients auf einem FastAPI-Backend.",
+      "project.infra.desc":  "Eine Kubernetes-Plattform auf vier Nodes mit TrueNAS als Storage, aus Code reproduzierbar mit einem einzigen manuellen Schritt. GitOps-Delivery mit Argo CD, vollständiger Observability-Stack und mehrschichtige Sicherheit, die in ein SIEM mündet.",
+      "project.gothic.desc":   "Masterarbeit zur Anwendung von Distant Reading auf ein Korpus der Schauerliteratur: Topic Modelling, Named Entity Recognition und Netzwerkanalyse, um wiederkehrende Muster im Genre sichtbar zu machen.",
+      "project.truenas.desc":  "Skripte und Konfiguration zur Steuerung der Lüfter und Statusleuchten eines UGREEN DXP4800 Plus unter TrueNAS SCALE, Hardware, die das Betriebssystem selbst nicht verwaltet.",
       "contact.title":      "Kontakt",
       "contact.desc":       "Ob Projekt, Frage oder einfach ein Gespräch, gerne melden.",
       footer:               `Florian Klement · Wien · ${year}`,
     }
   };
+
+  // Pages with their own strings (infra.html) load them before this script.
+  const extra = window.I18N_EXTRA || {};
+  Object.assign(t.en, extra.en || {});
+  Object.assign(t.de, extra.de || {});
 
   const systemLang = navigator.language.startsWith('de') ? 'de' : 'en';
   let lang = localStorage.getItem('lang') || systemLang;
