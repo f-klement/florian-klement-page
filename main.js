@@ -4,7 +4,7 @@
     en: {
       subtitle:             "DevOps, Web & Mobile Engineer · Vienna",
       tagline:              "I build the software people use and the infrastructure it runs on. From mobile apps to automated server pipelines, I work across the full stack.",
-      "page.title":         "Florian Klement",
+      "page.title":         "Florian Klement · DevOps, Web & Mobile Engineer",
       "nav.infra":          "Infrastructure",
       "nav.background":     "Background",
       "section.areas":      "Areas of work",
@@ -62,7 +62,7 @@
     de: {
       subtitle:             "DevOps, Web & Mobile Engineer · Wien",
       tagline:              "Ich entwickle Software und die Infrastruktur, auf der sie läuft. Von mobilen Apps bis zu automatisierten Server-Pipelines arbeite ich über den gesamten Stack.",
-      "page.title":         "Florian Klement",
+      "page.title":         "Florian Klement · DevOps, Web & Mobile Engineer",
       "nav.infra":          "Infrastruktur",
       "nav.background":     "Hintergrund",
       "section.areas":      "Tätigkeitsfelder",
