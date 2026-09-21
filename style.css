@@ -904,3 +904,41 @@ footer {
   font-weight: 600;
   color: var(--tag-text);
 }
+
+.reading-intro {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 640px;
+  margin: -0.75rem 0 1.5rem;
+}
+
+.books {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.books:last-child { margin-bottom: 0; }
+
+@media (max-width: 700px) {
+  .books { grid-template-columns: 1fr; }
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+  transition: border-color 0.2s;
+}
+
+.book:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+
+.book-title  { font-size: 0.9rem; font-weight: 600; line-height: 1.4; }
+.book-author { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
