@@ -5,6 +5,7 @@
       subtitle:             "DevOps, Web & Mobile Engineer · Vienna",
       tagline:              "I build the software people use and the infrastructure it runs on. From mobile apps to automated server pipelines, I work across the full stack.",
       "nav.infra":          "Infrastructure",
+      "nav.background":     "Background",
       "section.areas":      "Areas of work",
       "card.apps.title":    "Web & mobile apps",
       "card.apps.desc":     "Building interfaces that run in the browser or on your phone, connected to solid backend services.",
@@ -54,6 +55,7 @@
       subtitle:             "DevOps, Web & Mobile Engineer · Wien",
       tagline:              "Ich entwickle Software und die Infrastruktur, auf der sie läuft. Von mobilen Apps bis zu automatisierten Server-Pipelines arbeite ich über den gesamten Stack.",
       "nav.infra":          "Infrastruktur",
+      "nav.background":     "Hintergrund",
       "section.areas":      "Tätigkeitsfelder",
       "card.apps.title":    "Web- & Mobile-Apps",
       "card.apps.desc":     "Oberflächen, die im Browser oder auf dem Smartphone laufen, verbunden mit stabilen Backend-Diensten.",
@@ -101,7 +103,7 @@
     }
   };
 
-  // Pages with their own strings (infra.html) load them before this script.
+  // Pages with their own strings (infra.html, background.html) load them before this script.
   const extra = window.I18N_EXTRA || {};
   Object.assign(t.en, extra.en || {});
   Object.assign(t.de, extra.de || {});

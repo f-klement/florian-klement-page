@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Background · Florian Klement</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><path fill='%23ffffff' transform='translate(-1.2 1.05)' d='M25 14.5a6.5 6.5 0 0 0-12.7-2A5 5 0 1 0 8 22h17a4.5 4.5 0 0 0 0-9z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&family=Fraunces:opsz,wght@9..144,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=8" />
+</head>
+<body>
+
+
+<nav class="topbar" aria-label="Main">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-full">Florian Klement</span><span class="brand-short">F. Klement</span><span class="brand-mini">FK</span></a>
+    <div class="topbar-links">
+      <a class="nav-link" href="infra.html" data-i18n="nav.infra">Infrastructure</a>
+      <a class="nav-link" href="background.html" aria-current="page" data-i18n="nav.background">Background</a>
+    </div>
+    <div class="controls" role="toolbar">
+      <button class="ctrl-btn" id="lang-btn" aria-label="Switch language">DE</button>
+      <button class="ctrl-btn" id="theme-btn" aria-label="Toggle theme">
+        <svg id="icon-moon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" style="display:none">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero hero-compact">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1 data-i18n="bg.title">Background</h1>
+      <p class="subtitle" data-i18n="bg.subtitle">What I have been responsible for, and what trained me for it</p>
+      <p class="tagline" data-i18n="bg.intro">The overview page says what I do. This page says what that has meant in practice: the responsibilities I have carried across data, delivery and platform work, the studies behind them and the courses taken since. Grouped by theme rather than by station, because the themes are what carry over.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="bg.section.duties">Responsibilities</p>
+      <div class="duties">
+        <article class="duty">
+          <div class="card-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
+          </div>
+          <h3 data-i18n="bg.duty1.title">Application modernisation</h3>
+          <p class="duty-lead" data-i18n="bg.duty1.lead">Bringing legacy systems into the present without stopping the business that runs on them.</p>
+          <ul class="tasks">
+            <li data-i18n="bg.duty1.t1">Designed and built web frontends in TypeScript and React, on Bun, to replace ageing interfaces.</li>
+            <li data-i18n="bg.duty1.t2">Containerised legacy and greenfield applications with Docker and deployed them to Kubernetes through custom Helm charts.</li>
+            <li data-i18n="bg.duty1.t3">Designed SQL schemas and ETL pipelines that move complex datasets from legacy structures to current standards without loss.</li>
+          </ul>
+        </article>
+        <article class="duty">
+          <div class="card-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+          </div>
+          <h3 data-i18n="bg.duty2.title">Delivery automation</h3>
+          <p class="duty-lead" data-i18n="bg.duty2.lead">Pipelines that build, test and ship, so that a release stops being an event.</p>
+          <ul class="tasks">
+            <li data-i18n="bg.duty2.t1">Engineered GitLab CI pipelines and Bash tooling that build, archive and deploy artifacts, cutting manual release work.</li>
+            <li data-i18n="bg.duty2.t2">Standardised local and CI environments with Docker Compose so that development matched production.</li>
+            <li data-i18n="bg.duty2.t3">Established quality gates with SonarQube static analysis and Playwright end-to-end tests.</li>
+          </ul>
+        </article>
+        <article class="duty">
+          <div class="card-icon purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z"/></svg>
+          </div>
+          <h3 data-i18n="bg.duty3.title">Traffic &amp; developer tooling</h3>
+          <p class="duty-lead" data-i18n="bg.duty3.lead">The layer between the network and the code, and the tools that make it visible.</p>
+          <ul class="tasks">
+            <li data-i18n="bg.duty3.t1">Configured Nginx and Traefik for reverse proxying and dynamic service discovery.</li>
+            <li data-i18n="bg.duty3.t2">Built Python (Flask) API wrappers around command-line monitoring tools, giving developers a web view of application health.</li>
+            <li data-i18n="bg.duty3.t3">Run the same patterns privately: a GitOps-managed Kubernetes platform with full observability and layered security.</li>
+          </ul>
+        </article>
+        <article class="duty">
+          <div class="card-icon amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 2.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
+          </div>
+          <h3 data-i18n="bg.duty4.title">Data warehousing &amp; pipelines</h3>
+          <p class="duty-lead" data-i18n="bg.duty4.lead">One source of truth built from scratch, and the pipelines that keep it filled.</p>
+          <ul class="tasks">
+            <li data-i18n="bg.duty4.t1">Architected a unified data warehouse from the ground up, with a schema built for aggregation and anonymisation, as the central source for analysts.</li>
+            <li data-i18n="bg.duty4.t2">Developed Python and SQL pipelines for ingestion and for large-scale external extracts over SFTP.</li>
+            <li data-i18n="bg.duty4.t3">Optimised high-load SQL databases and wrote migration scripts that brought unstructured product data into existing patterns.</li>
+          </ul>
+        </article>
+        <article class="duty">
+          <div class="card-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+          </div>
+          <h3 data-i18n="bg.duty5.title">Data quality &amp; reporting</h3>
+          <p class="duty-lead" data-i18n="bg.duty5.lead">Knowing the data is right before anyone builds on it, and showing what it says.</p>
+          <ul class="tasks">
+            <li data-i18n="bg.duty5.t1">Implemented statistical monitoring and threshold-based alerting in R and Python to catch ingestion errors and product incidents before they reached a report.</li>
+            <li data-i18n="bg.duty5.t2">Delivered performance insights through custom dashboards (SSRS, Python) and ad-hoc visualisations.</li>
+            <li data-i18n="bg.duty5.t3">Served as the first contact for external stakeholders, turning requirement analysis into data deliveries.</li>
+          </ul>
+        </article>
+        <article class="duty">
+          <div class="card-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
+          </div>
+          <h3 data-i18n="bg.duty6.title">Requirements &amp; stakeholders</h3>
+          <p class="duty-lead" data-i18n="bg.duty6.lead">Translating between the people who need software and the people who build it.</p>
+          <ul class="tasks">
+            <li data-i18n="bg.duty6.t1">Acted as technical mediator for end users, translating qualitative requirements into precise technical specifications.</li>
+            <li data-i18n="bg.duty6.t2">Defined data specifications with product owners and finalised feature scopes.</li>
+            <li data-i18n="bg.duty6.t3">Worked as the established interface between business units and engineering.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="bg.section.edu">Studies</p>
+      <div class="edu-grid">
+        <article class="edu">
+          <div class="card-icon purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
+          </div>
+          <div>
+            <h3 data-i18n="bg.edu1.title">M.A. Digital Humanities</h3>
+            <p class="edu-sub" data-i18n="bg.edu1.sub">Focus on NLP and data science · University of Vienna</p>
+            <p class="edu-body" data-i18n="bg.edu1.body">The thesis built a full NLP pipeline, from tokenisation and embeddings to LDA topic modelling and network analysis, over a corpus of gothic fiction. Alongside it: a legacy text-analysis toolset refactored from Perl to Python, and a weakly supervised NER model for medical text built with PyTorch and Knodle. Performance scholarship; degree with distinction.</p>
+          </div>
+        </article>
+        <article class="edu">
+          <div class="card-icon amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+          </div>
+          <div>
+            <h3 data-i18n="bg.edu2.title">B.A. Comparative Literature</h3>
+            <p class="edu-sub" data-i18n="bg.edu2.sub">Applied literary studies · University of Vienna</p>
+            <p class="edu-body" data-i18n="bg.edu2.body">Close reading before distant reading. The training in how texts are built is what later made the computational work on them worth doing. Performance scholarship.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="section-label" data-i18n="bg.section.certs">Certificates &amp; courses</p>
+      <p class="cert-group-label" data-i18n="bg.certgroup.eng">Engineering</p>
+      <ul class="certs">
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert1.title">Decoding DevOps</h3>
+            <p data-i18n="bg.cert1.desc">Infrastructure automation, Jenkins, Argo CD, Kubernetes and monitoring.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert1.prov">Udemy</span>
+        </li>
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert2.title">The Complete Full-Stack Web Development Bootcamp</h3>
+            <p data-i18n="bg.cert2.desc">Modern web architecture with React, Express, Node.js and database integration.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert2.prov">Udemy</span>
+        </li>
+      </ul>
+      <p class="cert-group-label" data-i18n="bg.certgroup.data">Data &amp; analytics</p>
+      <ul class="certs">
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert3.title">IBM Data Science Professional Certificate</h3>
+            <p data-i18n="bg.cert3.desc">A nine-course specialisation covering data analysis, visualisation and methodology.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert3.prov">Coursera</span>
+        </li>
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert4.title">IBM Data Analyst Professional Certificate</h3>
+            <p data-i18n="bg.cert4.desc">Data analysis with SQL, Python and dashboarding tools.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert4.prov">Coursera</span>
+        </li>
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert5.title">IBM Data Analysis &amp; Visualization Foundations</h3>
+            <p data-i18n="bg.cert5.desc">Specialisation on the foundations of data analysis and visualisation.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert5.prov">Coursera</span>
+        </li>
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert6.title">Business Metrics for Data-Driven Companies</h3>
+            <p data-i18n="bg.cert6.desc">Which metrics matter, and how to read them.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert6.prov">Duke University · Coursera</span>
+        </li>
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert7.title">Data Visualization and Communication with Tableau</h3>
+            <p data-i18n="bg.cert7.desc">Visual analysis and presenting findings in Tableau.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert7.prov">Duke University · Coursera</span>
+        </li>
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert8.title">Power BI Grundlagen</h3>
+            <p data-i18n="bg.cert8.desc">Reports and data models in Power BI.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert8.prov">Udemy</span>
+        </li>
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert9.title">KNIME Analytics Platform</h3>
+            <p data-i18n="bg.cert9.desc">Basic and advanced proficiency in visual data workflows.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert9.prov">KNIME</span>
+        </li>
+      </ul>
+      <p class="cert-group-label" data-i18n="bg.certgroup.other">Research &amp; language</p>
+      <ul class="certs">
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert10.title">Data or Specimens Only Research</h3>
+            <p data-i18n="bg.cert10.desc">Research ethics for work with human data.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert10.prov">CITI Program</span>
+        </li>
+        <li class="cert">
+          <div class="cert-main">
+            <h3 data-i18n="bg.cert11.title">Certificate in Advanced English (C1)</h3>
+            <p data-i18n="bg.cert11.desc">Cambridge ESOL, Level 2.</p>
+          </div>
+          <span class="cert-prov" data-i18n="bg.cert11.prov">University of Cambridge</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span data-i18n="footer">Florian Klement · Vienna · 2026</span>
+</footer>
+
+<script src="background.i18n.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
