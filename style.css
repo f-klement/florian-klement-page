@@ -905,6 +905,26 @@ footer {
   color: var(--tag-text);
 }
 
+.cert-meta {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cert-meta .cert-prov { margin-top: 0; }
+
+.cert-state {
+  border: 1px dashed color-mix(in srgb, var(--accent) 55%, var(--border));
+  border-radius: 99px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
 .reading-intro {
   font-size: 0.95rem;
   line-height: 1.65;
