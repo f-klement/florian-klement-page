@@ -378,6 +378,30 @@
             <p data-i18n="hl.observability.p1">All three signals persist to MinIO on NVMe. A nightly job mirrors the day's objects to a compressed dataset on the HDD pool, so the spinning disks stay asleep instead of absorbing continuous writes.</p>
             <p data-i18n="hl.observability.p2">Gatus does not probe ports. Its interesting checks query Mimir: unavailable replicas anywhere in the app namespace, exporters that have stopped producing metrics, and Argo CD applications that can no longer be rendered. That last case is invisible from every other angle, because the pods keep running while the cluster silently stops tracking git.</p>
             <p data-i18n="hl.observability.p3">Readiness probe coverage went from 7 to 19 of 31 containers, which is what gave the replica metric meaning: a container without a probe is Ready the moment it starts. Exporter sidecars deliberately have none, because a pod is only Ready when every container is, and a probe on a sidecar would pull the application out of its Service. Monitoring failure would cause an outage.</p>
+            <div class="dg-wrap dg-inline">
+<svg class="dg dg-small" viewBox="0 0 840 330" role="img" aria-label="Alerting: three senders into one chat, and what deliberately pages nobody">
+    <rect class="dg-box" x="30" y="50" width="230" height="60" rx="8"/>
+    <text class="dg-title" x="145.0" y="76.0" text-anchor="middle" data-i18n="d7.siem">SIEM</text>
+    <text class="dg-sub" x="145.0" y="93.0" text-anchor="middle" data-i18n="d7.siem.sub">correlated events, high severity</text>
+    <rect class="dg-box" x="305" y="50" width="230" height="60" rx="8"/>
+    <text class="dg-title" x="420.0" y="76.0" text-anchor="middle" data-i18n="d7.graf">Grafana</text>
+    <text class="dg-sub" x="420.0" y="93.0" text-anchor="middle" data-i18n="d7.graf.sub">restarts, OOM kills, degradation</text>
+    <rect class="dg-box" x="580" y="50" width="230" height="60" rx="8"/>
+    <text class="dg-title" x="695.0" y="76.0" text-anchor="middle" data-i18n="d7.gatus">Gatus</text>
+    <text class="dg-sub" x="695.0" y="93.0" text-anchor="middle" data-i18n="d7.gatus.sub">checks, queries and heartbeats</text>
+    <path class="dg-edge dg-dashed" d="M 145 50 V 20 H 695 V 50" marker-end="url(#dg-arrow)"/>
+    <text class="dg-sub" x="420.0" y="14.0" text-anchor="middle" data-i18n="d7.loop">its delivery log, read from outside</text>
+    <rect class="dg-box" x="305" y="180" width="230" height="56" rx="8"/>
+    <text class="dg-title" x="420.0" y="204.0" text-anchor="middle" data-i18n="d7.chat">One chat</text>
+    <text class="dg-sub" x="420.0" y="221.0" text-anchor="middle" data-i18n="d7.chat.sub">every page lands here</text>
+    <path class="dg-edge" d="M 145 110 L 350 180" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge" d="M 420 110 V 180" marker-end="url(#dg-arrow)"/>
+    <path class="dg-edge" d="M 695 110 L 490 180" marker-end="url(#dg-arrow)"/>
+    <rect class="dg-plane" x="120" y="252" width="600" height="68" rx="12"/>
+    <text class="dg-plane-label" x="136" y="274" data-i18n="d7.quiet">Deliberately pages nobody</text>
+    <text class="dg-sub" x="420.0" y="302.0" text-anchor="middle" data-i18n="d7.quiet.sub">deploy notifications, build time scanning, routine traffic lines</text>
+</svg>
+            </div>
             <p data-i18n="hl.observability.p4">Three senders reach one chat and nothing else does: the SIEM for high severity correlations, Grafana for a handful of metric rules (containers that restart repeatedly, containers the OOM killer takes, a security tool that stops reporting), and Gatus for everything better expressed as a question than as a threshold. A check must not depend on the thing it watches, so the data sources have liveness checks of their own, and the one that matters most reads the SIEM's own delivery log through Loki, from a different system, because the only thing that would notice a dead pager is the pager. A second, independent check counts high severity alerts in the SIEM's index, so a silent delivery path shows up twice. Jobs whose only output is an exit status push a heartbeat instead of being polled, which makes a job that stopped running as visible as one that failed.</p>
             <p data-i18n="hl.observability.p5">What deliberately pages nobody is as considered as what does. Argo CD's own notifications are off, because a pager is not a chat channel; the image scanner stays a build time gate and never pages; routine firewall and traffic lines are held below the alerting threshold. Each of those is a decision that can be revisited, not an omission.</p>
             </div>
