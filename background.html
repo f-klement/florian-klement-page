@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Background · Florian Klement</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><path fill='%23ffffff' transform='translate(-1.2 1.05)' d='M25 14.5a6.5 6.5 0 0 0-12.7-2A5 5 0 1 0 8 22h17a4.5 4.5 0 0 0 0-9z'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23efeee9'/><path fill='%232140b8' d='M0 0h8v8H0zM16 0h8v8h-8zM8 8h8v8H8zM24 8h8v8h-8zM0 16h8v8H0zM16 16h8v8h-8zM8 24h8v8H8zM24 24h8v8h-8z'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&family=Fraunces:opsz,wght@9..144,800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=17" />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=18" />
 </head>
 <body>
 
@@ -47,7 +47,7 @@
     <div class="hero-text">
       <h1 data-i18n="bg.title">Background</h1>
       <p class="subtitle" data-i18n="bg.subtitle">What I have been responsible for, and what trained me for it</p>
-      <p class="tagline" data-i18n="bg.intro">The overview page says what I do. This page says what that has meant in practice: the responsibilities I have carried across data, delivery and platform work, the studies behind them and the courses taken since. Grouped by theme rather than by station, because the themes are what carry over.</p>
+      <p class="tagline" data-i18n="bg.intro">The overview page says what I do. This page says what that has meant in practice: the responsibilities I have carried in data, delivery and platform work, the studies behind them and the courses taken since. They are grouped by theme rather than by station, because the themes are what carry over.</p>
     </div>
   </div>
 </header>
@@ -77,9 +77,9 @@
           <h3 data-i18n="bg.duty2.title">Delivery automation</h3>
           <p class="duty-lead" data-i18n="bg.duty2.lead">Pipelines that build, test and ship, so that a release stops being an event.</p>
           <ul class="tasks">
-            <li data-i18n="bg.duty2.t1">Engineered GitLab CI pipelines and Bash tooling that build, archive and deploy artifacts, cutting manual release work.</li>
+            <li data-i18n="bg.duty2.t1">Built GitLab CI pipelines and Bash tooling that build, archive and deploy artifacts, which removed most manual release steps.</li>
             <li data-i18n="bg.duty2.t2">Standardised local and CI environments with Docker Compose so that development matched production.</li>
-            <li data-i18n="bg.duty2.t3">Established quality gates with SonarQube static analysis and Playwright end-to-end tests.</li>
+            <li data-i18n="bg.duty2.t3">Added quality gates with SonarQube static analysis and Playwright end-to-end tests.</li>
           </ul>
         </article>
         <article class="duty">
@@ -90,8 +90,8 @@
           <p class="duty-lead" data-i18n="bg.duty3.lead">The layer between the network and the code, and the tools that make it visible.</p>
           <ul class="tasks">
             <li data-i18n="bg.duty3.t1">Configured Nginx and Traefik for reverse proxying and dynamic service discovery.</li>
-            <li data-i18n="bg.duty3.t2">Built Python (Flask) API wrappers around command-line monitoring tools, giving developers a web view of application health.</li>
-            <li data-i18n="bg.duty3.t3">Run the same patterns privately: a GitOps-managed Kubernetes platform with full observability and layered security.</li>
+            <li data-i18n="bg.duty3.t2">Built Python (Flask) API wrappers around command-line monitoring tools, so developers could see application health in the browser.</li>
+            <li data-i18n="bg.duty3.t3">Run the same patterns privately, on a GitOps-managed Kubernetes platform with full observability and layered security.</li>
           </ul>
         </article>
         <article class="duty">
@@ -99,9 +99,9 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 2.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
           </div>
           <h3 data-i18n="bg.duty4.title">Data warehousing &amp; pipelines</h3>
-          <p class="duty-lead" data-i18n="bg.duty4.lead">One source of truth built from scratch, and the pipelines that keep it filled.</p>
+          <p class="duty-lead" data-i18n="bg.duty4.lead">One central warehouse built from scratch, and the pipelines that keep it filled.</p>
           <ul class="tasks">
-            <li data-i18n="bg.duty4.t1">Architected a unified data warehouse from the ground up, with a schema built for aggregation and anonymisation, as the central source for analysts.</li>
+            <li data-i18n="bg.duty4.t1">Designed a unified data warehouse from scratch, with a schema built for aggregation and anonymisation, as the central source for analysts.</li>
             <li data-i18n="bg.duty4.t2">Developed Python and SQL pipelines for ingestion and for large-scale external extracts over SFTP.</li>
             <li data-i18n="bg.duty4.t3">Optimised high-load SQL databases and wrote migration scripts that brought unstructured product data into existing patterns.</li>
             <li data-i18n="bg.duty4.t4">Built pipelines for parsing, normalising and standardising address data, and matched messy address stocks against geographic hierarchies and coordinates.</li>
@@ -115,8 +115,8 @@
           <p class="duty-lead" data-i18n="bg.duty5.lead">Knowing the data is right before anyone builds on it, and showing what it says.</p>
           <ul class="tasks">
             <li data-i18n="bg.duty5.t1">Implemented statistical monitoring and threshold-based alerting in R and Python to catch ingestion errors and product incidents before they reached a report.</li>
-            <li data-i18n="bg.duty5.t2">Delivered performance insights through custom dashboards (SSRS, Python) and ad-hoc visualisations.</li>
-            <li data-i18n="bg.duty5.t3">Served as the first contact for external stakeholders, turning requirement analysis into data deliveries.</li>
+            <li data-i18n="bg.duty5.t2">Reported performance figures through custom dashboards (SSRS, Python) and ad-hoc visualisations.</li>
+            <li data-i18n="bg.duty5.t3">Was the first contact for external stakeholders and turned their requirements into data deliveries.</li>
           </ul>
         </article>
         <article class="duty">
@@ -126,9 +126,9 @@
           <h3 data-i18n="bg.duty6.title">Requirements &amp; stakeholders</h3>
           <p class="duty-lead" data-i18n="bg.duty6.lead">Translating between the people who need software and the people who build it.</p>
           <ul class="tasks">
-            <li data-i18n="bg.duty6.t1">Acted as technical mediator for end users, translating qualitative requirements into precise technical specifications.</li>
+            <li data-i18n="bg.duty6.t1">Mediated for end users, translating qualitative requirements into precise technical specifications.</li>
             <li data-i18n="bg.duty6.t2">Defined data specifications with product owners and finalised feature scopes.</li>
-            <li data-i18n="bg.duty6.t3">Worked as the established interface between business units and engineering.</li>
+            <li data-i18n="bg.duty6.t3">Was the standing interface between business units and engineering.</li>
           </ul>
         </article>
         <article class="duty">
@@ -148,7 +148,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
           </div>
           <h3 data-i18n="bg.duty8.title">Knowledge sharing &amp; mentoring</h3>
-          <p class="duty-lead" data-i18n="bg.duty8.lead">Documentation that outlives the meeting, and colleagues who can take a stack over.</p>
+          <p class="duty-lead" data-i18n="bg.duty8.lead">Documentation that is still useful after the meeting, and colleagues who can take a stack over.</p>
           <ul class="tasks">
             <li data-i18n="bg.duty8.t1">Contributed a React and TypeScript frontend as an internal reference stack, with architecture, tooling, design decisions and operations documented in writing.</li>
             <li data-i18n="bg.duty8.t2">Kept GitLab wikis, Markdown architecture notes and structured issue threads as the shared record of decisions.</li>
@@ -170,7 +170,7 @@
           <div>
             <h3 data-i18n="bg.edu1.title">M.A. Digital Humanities</h3>
             <p class="edu-sub" data-i18n="bg.edu1.sub">Focus on NLP and data science · University of Vienna</p>
-            <p class="edu-body" data-i18n="bg.edu1.body">The thesis built a full NLP pipeline, from tokenisation and embeddings to LDA topic modelling and network analysis, over a corpus of gothic fiction. Alongside it: a legacy text-analysis toolset refactored from Perl to Python, and a weakly supervised NER model for medical text built with PyTorch and Knodle. Performance scholarship; degree with distinction.</p>
+            <p class="edu-body" data-i18n="bg.edu1.body">The thesis built a full NLP pipeline, from tokenisation and embeddings to LDA topic modelling and network analysis, over a corpus of gothic fiction. Alongside the thesis I refactored a legacy text-analysis toolset from Perl to Python and built a weakly supervised NER model for medical text with PyTorch and Knodle. I graduated with distinction and held a performance scholarship.</p>
           </div>
         </article>
         <article class="edu">
@@ -180,7 +180,7 @@
           <div>
             <h3 data-i18n="bg.edu2.title">B.A. Comparative Literature</h3>
             <p class="edu-sub" data-i18n="bg.edu2.sub">Applied literary studies · University of Vienna</p>
-            <p class="edu-body" data-i18n="bg.edu2.body">Close reading before distant reading. The training in how texts are built is what later made the computational work on them worth doing. Performance scholarship.</p>
+            <p class="edu-body" data-i18n="bg.edu2.body">Close reading came before distant reading. Learning how texts are built is what later made the computational work on them worth doing. I held a performance scholarship.</p>
           </div>
         </article>
       </div>
@@ -396,7 +396,7 @@
   <span data-i18n="footer">Florian Klement · Vienna · 2026</span>
 </footer>
 
-<script src="background.i18n.js?v=17"></script>
-<script src="main.js?v=17"></script>
+<script src="background.i18n.js?v=18"></script>
+<script src="main.js?v=18"></script>
 </body>
 </html>
